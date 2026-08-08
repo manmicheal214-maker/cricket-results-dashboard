@@ -1,167 +1,125 @@
-let matches = [];
-let activeFilter = "all";
+const state = {
+  matches: [],
+  filter: "all",
+  query: "",
+  competition: "all"
+};
 
-const $ = selector => document.querySelector(selector);
-const matchesEl = $("#matches");
-const messageEl = $("#message");
-const emptyEl = $("#empty");
-const searchEl = $("#search");
-const seriesEl = $("#series");
+const $ = (selector) => document.querySelector(selector);
 
-function value(obj, keys, fallback = "") {
-  if (!obj || typeof obj !== "object") return fallback;
-  for (const key of keys) {
-    if (obj[key] !== undefined && obj[key] !== null && obj[key] !== "") return obj[key];
+function siteBase() {
+  const path = window.location.pathname;
+  const marker = "/cricket-results-dashboard/";
+  const index = path.indexOf(marker);
+  return index >= 0 ? path.slice(0, index + marker.length) : "/";
+}
+
+async function load() {
+  const status = $("#status");
+  const container = $("#matches");
+
+  status.textContent = "Loading matches…";
+  container.innerHTML = "";
+
+  try {
+    const url = `${siteBase()}data/matches.json?t=${Date.now()}`;
+    const response = await fetch(url, { cache: "no-store" });
+
+    if (!response.ok) {
+      throw new Error(`Data request failed (${response.status})`);
+    }
+
+    const text = await response.text();
+    if (text.trim().startsWith("<")) {
+      throw new Error(`Data file not found at ${url}`);
+    }
+
+    const payload = JSON.parse(text);
+    state.matches = Array.isArray(payload.data) ? payload.data : [];
+
+    render();
+  } catch (error) {
+    console.error(error);
+    status.textContent = `Unable to load matches: ${error.message}`;
+    container.innerHTML = "<div class=\"empty\">Check the GitHub Actions data update and try Refresh.</div>";
   }
-  return fallback;
 }
 
-function arrayValue(obj, keys) {
-  for (const key of keys) if (Array.isArray(obj?.[key])) return obj[key];
-  return [];
+function normalize(value) {
+  return String(value ?? "").toLowerCase();
 }
 
-function escapeHtml(value) {
-  return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+function matchText(match) {
+  return normalize(JSON.stringify(match));
+}
+
+function statusOf(match) {
+  const value = normalize(match.status || match.state || match.matchStatus);
+  if (value.includes("live") || value.includes("progress")) return "live";
+  if (value.includes("complete") || value.includes("result") || value.includes("finished")) return "result";
+  return "upcoming";
+}
+
+function render() {
+  const filtered = state.matches.filter((match) => {
+    const status = statusOf(match);
+    const competition = match.seriesName || match.series || match.competition || match.tournament || "Other";
+    const matchesCompetition = state.competition === "all" || competition === state.competition;
+    const matchesFilter = state.filter === "all" || status === state.filter;
+    const matchesQuery = !state.query || matchText(match).includes(normalize(state.query));
+    return matchesCompetition && matchesFilter && matchesQuery;
+  });
+
+  $("#status").textContent = `${filtered.length} match${filtered.length === 1 ? "" : "es"}`;
+  $("#matches").innerHTML = filtered.length
+    ? filtered.map(renderMatch).join("")
+    : '<div class="empty">No matches found.</div>';
+
+  const competitions = [...new Set(state.matches.map(m => m.seriesName || m.series || m.competition || m.tournament).filter(Boolean))].sort();
+  const select = $("#competition");
+  if (select) {
+    const current = select.value;
+    select.innerHTML = '<option value="all">All competitions</option>' + competitions.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");
+    select.value = competitions.includes(current) ? current : "all";
+  }
+}
+
+function renderMatch(match) {
+  const teams = match.teams || [];
+  const home = match.homeTeam || teams[0] || match.team1 || match.teamA || "Team 1";
+  const away = match.awayTeam || teams[1] || match.team2 || match.teamB || "Team 2";
+  const score = match.score || match.result || match.status || "";
+  const competition = match.seriesName || match.series || match.competition || match.tournament || "";
+  const date = match.date || match.startTime || match.startDate || "";
+
+  return `<article class="match-card">
+    <div class="match-meta">${escapeHtml(competition)}${date ? ` · ${escapeHtml(new Date(date).toLocaleString())}` : ""}</div>
+    <div class="teams"><strong>${escapeHtml(teamName(home))}</strong><span>vs</span><strong>${escapeHtml(teamName(away))}</strong></div>
+    <div class="score">${escapeHtml(typeof score === "object" ? JSON.stringify(score) : score)}</div>
+  </article>`;
 }
 
 function teamName(team) {
   if (typeof team === "string") return team;
-  return value(team, ["name", "short_name", "shortName", "title"], "Team");
+  return team?.name || team?.teamName || team?.shortName || "Team";
 }
 
-function teams(match) {
-  const direct = arrayValue(match, ["teams", "participants"]);
-  if (direct.length >= 2) return { home: direct[0], away: direct[1] };
-  return {
-    home: value(match, ["home", "home_team", "team1", "teamA"], {}),
-    away: value(match, ["away", "away_team", "team2", "teamB"], {})
-  };
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>'"]/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
+  }[c]));
 }
 
-function status(match) {
-  const raw = String(value(match, ["status", "state", "match_status"], "")).toLowerCase();
-  if (raw.includes("live") || raw.includes("progress") || raw.includes("playing")) return "live";
-  if (raw.includes("complete") || raw.includes("finished") || raw.includes("final") || raw.includes("result")) return "completed";
-  return "upcoming";
-}
-
-function seriesName(match) {
-  const series = value(match, ["series", "competition", "league", "tournament"], "Cricket");
-  return typeof series === "string" ? series : value(series, ["name", "title"], "Cricket");
-}
-
-function scoreFor(match, side) {
-  const scores = value(match, ["scores", "score"], {});
-  const score = value(scores, [side], "");
-  if (typeof score === "object") {
-    const runs = value(score, ["runs", "score", "value"], "");
-    const wickets = value(score, ["wickets", "wkts"], "");
-    const overs = value(score, ["overs", "over"], "");
-    if (runs !== "") return `${runs}/${wickets || 0}${overs !== "" ? ` (${overs})` : ""}`;
-  }
-  return score || "—";
-}
-
-function normalized(match) {
-  const t = teams(match);
-  return {
-    raw: match,
-    id: value(match, ["id", "match_id", "matchId", "key"], crypto.randomUUID?.() || String(Math.random())),
-    home: teamName(t.home),
-    away: teamName(t.away),
-    series: seriesName(match),
-    status: status(match),
-    venue: value(match, ["venue", "ground", "stadium"], ""),
-    result: value(match, ["result", "outcome", "status_text"], ""),
-    date: value(match, ["date", "start_time", "startTime", "kickoff_utc", "scheduled_at"], ""),
-    homeScore: scoreFor(match, "home"),
-    awayScore: scoreFor(match, "away")
-  };
-}
-
-function formatDate(date) {
-  if (!date) return "";
-  const d = new Date(date);
-  return Number.isNaN(d.getTime()) ? String(date) : d.toLocaleString([], { dateStyle: "medium", timeStyle: "short" });
-}
-
-async function api(url) {
-  const response = await fetch(url);
-  const body = await response.json();
-  if (!response.ok || !body.ok) throw new Error(body.error || "Request failed");
-  return body.data;
-}
-
-function populateSeries() {
-  if (!seriesEl) return;
-  const names = [...new Set(matches.map(m => m.series).filter(Boolean))].sort();
-  seriesEl.innerHTML = '<option value="">All competitions</option>' + names.map(name => `<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`).join("");
-}
-
-function render() {
-  const query = (searchEl?.value || "").trim().toLowerCase();
-  const series = seriesEl?.value || "";
-  const filtered = matches.filter(match => {
-    if (activeFilter !== "all" && match.status !== activeFilter) return false;
-    if (series && match.series !== series) return false;
-    if (query) {
-      const haystack = [match.home, match.away, match.series, match.venue, match.result].join(" ").toLowerCase();
-      if (!haystack.includes(query)) return false;
-    }
-    return true;
-  });
-
-  if (!matchesEl) return;
-  matchesEl.innerHTML = filtered.map(match => `
-    <article class="match-card">
-      <div class="match-meta">
-        <span>${escapeHtml(match.series)}</span>
-        <span class="status ${escapeHtml(match.status)}">${escapeHtml(match.status)}</span>
-      </div>
-      <div class="teams">
-        <div><strong>${escapeHtml(match.home)}</strong><b>${escapeHtml(match.homeScore)}</b></div>
-        <div><strong>${escapeHtml(match.away)}</strong><b>${escapeHtml(match.awayScore)}</b></div>
-      </div>
-      ${match.result ? `<div class="result">${escapeHtml(match.result)}</div>` : ""}
-      ${match.venue || match.date ? `<div class="match-details">${escapeHtml(match.venue)}${match.venue && match.date ? " · " : ""}${escapeHtml(formatDate(match.date))}</div>` : ""}
-    </article>
-  `).join("");
-
-  if (emptyEl) emptyEl.classList.toggle("hidden", filtered.length !== 0);
-}
-
-async function load() {
-  messageEl.textContent = "Loading cricket matches…";
-  try {
-    const data = await api("/api/matches");
-    const items = Array.isArray(data) ? data : arrayValue(data, ["matches", "results", "items"]);
-    matches = items.map(normalized);
-    populateSeries();
-    render();
-    messageEl.textContent = `${matches.length} matches available`;
-  } catch (error) {
-    console.error(error);
-    matches = [];
-    render();
-    messageEl.textContent = `Unable to load matches: ${error.message}`;
-  }
-}
+$("#refresh")?.addEventListener("click", load);
+$("#search")?.addEventListener("input", e => { state.query = e.target.value; render(); });
+$("#competition")?.addEventListener("change", e => { state.competition = e.target.value; render(); });
 
 document.querySelectorAll("[data-filter]").forEach(button => {
   button.addEventListener("click", () => {
-    activeFilter = button.dataset.filter || "all";
+    state.filter = button.dataset.filter;
     document.querySelectorAll("[data-filter]").forEach(b => b.classList.toggle("active", b === button));
     render();
   });
 });
-searchEl?.addEventListener("input", render);
-seriesEl?.addEventListener("change", render);
-$("#refresh")?.addEventListener("click", load);
 
 load();
