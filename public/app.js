@@ -1,4 +1,4 @@
-const state = { matches: [], filter: "all", query: "", competition: "all" };
+const state = { matches: [], filter: "completed", query: "", competition: "all" };
 const $ = (selector) => document.querySelector(selector);
 
 async function load() {
@@ -51,14 +51,16 @@ function render() {
     return (state.filter === "all" || status === state.filter) &&
       (state.competition === "all" || competition === state.competition) &&
       (!state.query || matchText(match).includes(normalize(state.query)));
-  });
-  $("#message").textContent = `${filtered.length} match${filtered.length === 1 ? "" : "es"}`;
+  }).sort((a, b) => new Date(b.kickoff_utc || b.date || 0) - new Date(a.kickoff_utc || a.date || 0));
+
+  $("#message").textContent = `${filtered.length} ${state.filter === "completed" ? "results" : "matches"}`;
   const container = $("#matches"), empty = $("#empty");
   if (filtered.length) { container.innerHTML = filtered.map(renderMatch).join(""); empty.classList.add("hidden"); }
   else { container.innerHTML = ""; empty.classList.remove("hidden"); empty.querySelector("h2").textContent = "No matches found"; empty.querySelector("p").textContent = "Try another search or filter."; }
+
   const competitions = [...new Set(state.matches.map(m => m.league || m.seriesName || m.series || m.competition || m.tournament).filter(Boolean))].sort();
   const select = $("#series");
-  if (select) { const current = select.value; select.innerHTML = '<option value="all">All competitions</option>' + competitions.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join(""); select.value = competitions.includes(current) ? current : "all"; }
+  if (select) { const current = state.competition; select.innerHTML = '<option value="all">All competitions</option>' + competitions.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join(""); select.value = competitions.includes(current) ? current : "all"; }
 }
 
 function renderMatch(match) {
