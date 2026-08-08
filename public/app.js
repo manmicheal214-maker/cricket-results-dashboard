@@ -2,18 +2,18 @@ const state = { matches: [], filter: "all", query: "", competition: "all" };
 const $ = (selector) => document.querySelector(selector);
 
 async function load() {
-  const status = $("#status");
+  const message = $("#message");
   const container = $("#matches");
-  status.textContent = "Loading matches…";
+  const empty = $("#empty");
+  message.textContent = "Loading matches…";
   container.innerHTML = "";
+  empty.classList.add("hidden");
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 10000);
 
   try {
-    // Resolve relative to the actual document (/cricket-results-dashboard/public/),
-    // because the repository-root index redirects into public/.
-    const url = new URL(`data/matches.json?t=${Date.now()}`, document.baseURI).href;
+    const url = new URL("data/matches.json?t=" + Date.now(), document.baseURI).href;
     const response = await fetch(url, { cache: "no-store", signal: controller.signal });
     clearTimeout(timeout);
 
@@ -28,10 +28,13 @@ async function load() {
   } catch (error) {
     clearTimeout(timeout);
     console.error(error);
-    status.textContent = error.name === "AbortError"
+    message.textContent = error.name === "AbortError"
       ? "Unable to load matches: request timed out"
       : `Unable to load matches: ${error.message}`;
-    container.innerHTML = '<div class="empty">The match data could not be loaded. Try Refresh.</div>';
+    container.innerHTML = "";
+    empty.classList.remove("hidden");
+    empty.querySelector("h2").textContent = "Unable to load matches";
+    empty.querySelector("p").textContent = "Check the GitHub Actions data update and try Refresh.";
   }
 }
 
@@ -40,7 +43,7 @@ function matchText(match) { return normalize(JSON.stringify(match)); }
 function statusOf(match) {
   const value = normalize(match.status || match.state || match.matchStatus);
   if (value.includes("live") || value.includes("progress")) return "live";
-  if (value.includes("complete") || value.includes("result") || value.includes("finished")) return "result";
+  if (value.includes("complete") || value.includes("result") || value.includes("finished")) return "completed";
   return "upcoming";
 }
 
@@ -53,11 +56,22 @@ function render() {
       (!state.query || matchText(match).includes(normalize(state.query)));
   });
 
-  $("#status").textContent = `${filtered.length} match${filtered.length === 1 ? "" : "es"}`;
-  $("#matches").innerHTML = filtered.length ? filtered.map(renderMatch).join("") : '<div class="empty">No matches found.</div>';
+  $("#message").textContent = `${filtered.length} match${filtered.length === 1 ? "" : "es"}`;
+  const container = $("#matches");
+  const empty = $("#empty");
+
+  if (filtered.length) {
+    container.innerHTML = filtered.map(renderMatch).join("");
+    empty.classList.add("hidden");
+  } else {
+    container.innerHTML = "";
+    empty.classList.remove("hidden");
+    empty.querySelector("h2").textContent = "No matches found";
+    empty.querySelector("p").textContent = "Try another search or filter.";
+  }
 
   const competitions = [...new Set(state.matches.map(m => m.seriesName || m.series || m.competition || m.tournament).filter(Boolean))].sort();
-  const select = $("#competition");
+  const select = $("#series");
   if (select) {
     const current = select.value;
     select.innerHTML = '<option value="all">All competitions</option>' + competitions.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");
@@ -72,17 +86,24 @@ function renderMatch(match) {
   const score = match.score || match.result || match.status || "";
   const competition = match.seriesName || match.series || match.competition || match.tournament || "";
   const date = match.date || match.startTime || match.startDate || "";
-  return `<article class="match-card"><div class="match-meta">${escapeHtml(competition)}${date ? ` · ${escapeHtml(new Date(date).toLocaleString())}` : ""}</div><div class="teams"><strong>${escapeHtml(teamName(home))}</strong><span>vs</span><strong>${escapeHtml(teamName(away))}</strong></div><div class="score">${escapeHtml(typeof score === "object" ? JSON.stringify(score) : score)}</div></article>`;
+  return `<article class="match-card"><div class="match-meta">${escapeHtml(competition)}${date ? ` · ${escapeHtml(formatDate(date))}` : ""}</div><div class="teams"><strong>${escapeHtml(teamName(home))}</strong><span>vs</span><strong>${escapeHtml(teamName(away))}</strong></div><div class="score">${escapeHtml(typeof score === "object" ? JSON.stringify(score) : score)}</div></article>`;
 }
+
+function formatDate(value) {
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString();
+}
+
 function teamName(team) { return typeof team === "string" ? team : team?.name || team?.teamName || team?.shortName || "Team"; }
 function escapeHtml(value) { return String(value ?? "").replace(/[&<>'"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[c])); }
 
 $("#refresh")?.addEventListener("click", load);
 $("#search")?.addEventListener("input", e => { state.query = e.target.value; render(); });
-$("#competition")?.addEventListener("change", e => { state.competition = e.target.value; render(); });
+$("#series")?.addEventListener("change", e => { state.competition = e.target.value; render(); });
 document.querySelectorAll("[data-filter]").forEach(button => button.addEventListener("click", () => {
   state.filter = button.dataset.filter;
   document.querySelectorAll("[data-filter]").forEach(b => b.classList.toggle("active", b === button));
   render();
 }));
+
 load();
