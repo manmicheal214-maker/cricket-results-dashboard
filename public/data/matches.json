@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-08T22:53:16.930Z",
+  "updatedAt": "2026-08-08T23:16:34.686Z",
   "count": 50,
   "data": [
     {
@@ -173,6 +173,28 @@
       },
       "kickoff_utc": "2026-11-15T08:00:00.000Z",
       "status": "scheduled",
+      "score": null,
+      "linescore": null,
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "f9d741de-0e5d-414d-9788-e43719384a9f",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Trinbago Knight Riders",
+        "short_name": null,
+        "logo_url": "https://g.cricapi.com/iapi/293-637932465560269082.png?w=48"
+      },
+      "away": {
+        "name": "St Kitts and Nevis Patriots",
+        "short_name": null,
+        "logo_url": "https://g.cricapi.com/iapi/277-637937608859640652.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-08T23:00:00.000Z",
+      "status": "live",
       "score": null,
       "linescore": null,
       "attendance": null,
@@ -1481,38 +1503,6 @@
         ],
         "home": [
           121
-        ]
-      },
-      "attendance": null,
-      "broadcast": null,
-      "has_odds": false
-    },
-    {
-      "id": "e3ced55b-2cf3-45e9-8054-ed2ed00ecf6d",
-      "sport": "cricket",
-      "league": "The Hundred Men's Competition",
-      "home": {
-        "name": "Mi London",
-        "short_name": "MIL",
-        "logo_url": "https://h.cricapi.com/img/icon512.png"
-      },
-      "away": {
-        "name": "Manchester Super Giants",
-        "short_name": "MSG",
-        "logo_url": "https://h.cricapi.com/img/icon512.png"
-      },
-      "kickoff_utc": "2026-08-02T17:00:00.000Z",
-      "status": "finished",
-      "score": {
-        "home": 183,
-        "away": 138
-      },
-      "linescore": {
-        "away": [
-          138
-        ],
-        "home": [
-          183
         ]
       },
       "attendance": null,
