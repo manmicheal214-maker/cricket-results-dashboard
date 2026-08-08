@@ -1,37 +1,70 @@
 (() => {
   const originalFetch = window.fetch.bind(window);
 
+  async function staticMatches() {
+    const url = new URL("data/matches.json", document.baseURI);
+    url.searchParams.set("v", Date.now().toString());
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
+
+    try {
+      const response = await originalFetch(url.href, {
+        cache: "no-store",
+        signal: controller.signal
+      });
+
+      if (!response.ok) {
+        throw new Error(`Unable to load match data (${response.status})`);
+      }
+
+      return await response.json();
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
   window.fetch = async (input, init) => {
-    const url = typeof input === "string" ? input : input.url;
+    const url = typeof input === "string" ? input : input?.url || "";
 
     if (!url.startsWith("/api/") && !url.startsWith("./api/")) {
       return originalFetch(input, init);
     }
 
     const path = url.replace(/^\.\//, "");
-    const dataUrl = `./data/matches.json?v=${Date.now()}`;
-    const response = await originalFetch(dataUrl, {
-      ...(init || {}),
-      cache: "no-store"
-    });
-    const payload = await response.json();
 
     if (path === "api/matches") {
-      return new Response(JSON.stringify(payload), {
-        status: response.ok ? 200 : 500,
-        headers: { "Content-Type": "application/json" }
-      });
+      try {
+        const payload = await staticMatches();
+        return new Response(JSON.stringify(payload), {
+          status: 200,
+          headers: { "Content-Type": "application/json" }
+        });
+      } catch (error) {
+        return new Response(JSON.stringify({
+          ok: false,
+          error: error.name === "AbortError"
+            ? "Match data request timed out"
+            : error.message
+        }), {
+          status: 503,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
     }
 
     const match = path.match(/^api\/matches\/([^/]+)$/);
     if (match) {
       const id = decodeURIComponent(match[1]);
-      const items = Array.isArray(payload.data)
+      const payload = await staticMatches();
+      const items = Array.isArray(payload?.data)
         ? payload.data
-        : Array.isArray(payload.data?.matches)
+        : Array.isArray(payload?.data?.matches)
           ? payload.data.matches
           : [];
-      const found = items.find(item => String(item.id ?? item.match_id ?? item.matchId ?? item.key) === id);
+      const found = items.find(item =>
+        String(item.id ?? item.match_id ?? item.matchId ?? item.key) === id
+      );
 
       return new Response(JSON.stringify({
         ok: Boolean(found),
