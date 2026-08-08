@@ -12,6 +12,9 @@ permissions:
 
 jobs:
   update-data:
+    # Run for human pushes, but never trigger another data-update run from
+    # the bot commit that this workflow creates.
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -31,10 +34,19 @@ jobs:
           BBS_API_KEY: ${{ secrets.BBS_API_KEY }}
         run: node scripts/fetch-data.js
 
+      - name: Validate generated data
+        run: |
+          test -s public/data/matches.json
+          node -e "const d=require('./public/data/matches.json'); if(!d.ok || !d.updatedAt) process.exit(1); console.log('Updated:', d.updatedAt);"
+
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/data/matches.json
-          git diff --cached --quiet || git commit -m "data: update cricket results"
-          git push
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "data: update cricket results"
+            git push
+          fi
