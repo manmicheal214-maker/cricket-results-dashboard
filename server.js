@@ -1,4 +1,3 @@
-```javascript
 require("dotenv").config();
 
 const express = require("express");
@@ -31,9 +30,7 @@ app.use(
   )
 );
 
-
 /* Health */
-
 app.get("/api/health", (req, res) => {
   res.json({
     ok: true,
@@ -42,112 +39,55 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-
 /* Matches */
-
 app.get("/api/matches", async (req, res) => {
   try {
     const payload = await getMatches();
-
-    res.json({
-      ok: true,
-      data: unwrap(payload)
-    });
+    res.json({ ok: true, data: unwrap(payload) });
   } catch (error) {
     console.error(error);
-
-    res.status(502).json({
-      ok: false,
-      error: error.message
-    });
+    res.status(502).json({ ok: false, error: error.message });
   }
 });
 
-
 /* Series */
-
 app.get("/api/series", async (req, res) => {
   try {
     const payload = await getSeries();
-
-    res.json({
-      ok: true,
-      data: unwrap(payload)
-    });
+    res.json({ ok: true, data: unwrap(payload) });
   } catch (error) {
     console.error(error);
-
-    res.status(502).json({
-      ok: false,
-      error: error.message
-    });
+    res.status(502).json({ ok: false, error: error.message });
   }
 });
-
 
 /* Match detail */
-
 app.get("/api/matches/:id", async (req, res) => {
   try {
-    const payload =
-      await getMatch(req.params.id);
-
-    res.json({
-      ok: true,
-      data: unwrap(payload)
-    });
+    const payload = await getMatch(req.params.id);
+    res.json({ ok: true, data: unwrap(payload) });
   } catch (error) {
     console.error(error);
-
-    res.status(502).json({
-      ok: false,
-      error: error.message
-    });
+    res.status(502).json({ ok: false, error: error.message });
   }
 });
-
 
 /* Full scorecard */
-
-app.get(
-  "/api/matches/:id/scorecard",
-  async (req, res) => {
-    try {
-      const payload =
-        await getScorecard(req.params.id);
-
-      res.json({
-        ok: true,
-        data: unwrap(payload)
-      });
-    } catch (error) {
-      console.error(error);
-
-      res.status(502).json({
-        ok: false,
-        error: error.message
-      });
-    }
+app.get("/api/matches/:id/scorecard", async (req, res) => {
+  try {
+    const payload = await getScorecard(req.params.id);
+    res.json({ ok: true, data: unwrap(payload) });
+  } catch (error) {
+    console.error(error);
+    res.status(502).json({ ok: false, error: error.message });
   }
-);
-
-
-/* Frontend fallback */
-
-app.get("*", (req, res) => {
-  res.sendFile(
-    path.join(
-      __dirname,
-      "public",
-      "index.html"
-    )
-  );
 });
 
+/* Frontend fallback — Express 5 compatible wildcard */
+app.get("/{*splat}", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(
-    `Cricket dashboard running on port ${PORT}`
-  );
+  console.log(`Cricket dashboard running on port ${PORT}`);
 });
-```
