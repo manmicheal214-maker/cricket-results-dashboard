@@ -4,9 +4,28 @@ const fs = require("fs");
 const path = require("path");
 
 const {
-  unwrap,
   getMatches
 } = require("../src/cricket-api");
+
+function extractMatches(payload) {
+  const candidates = [
+    payload?.data,
+    payload?.data?.matches,
+    payload?.data?.results,
+    payload?.data?.items,
+    payload?.matches,
+    payload?.results,
+    payload?.items
+  ];
+
+  for (const value of candidates) {
+    if (Array.isArray(value)) {
+      return value;
+    }
+  }
+
+  return [];
+}
 
 async function main() {
   if (!process.env.BBS_API_KEY) {
@@ -14,12 +33,13 @@ async function main() {
   }
 
   const payload = await getMatches();
-  const data = unwrap(payload);
+  const matches = extractMatches(payload);
 
   const output = {
     ok: true,
     updatedAt: new Date().toISOString(),
-    data
+    count: matches.length,
+    data: matches
   };
 
   const outputPath = path.join(
@@ -37,7 +57,12 @@ async function main() {
     "utf8"
   );
 
+  console.log(`Fetched ${matches.length} cricket matches`);
   console.log(`Wrote cricket data to ${outputPath}`);
+
+  if (matches.length === 0) {
+    console.warn("The cricket API returned no match records.");
+  }
 }
 
 main().catch(error => {
