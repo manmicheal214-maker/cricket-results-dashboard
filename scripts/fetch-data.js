@@ -1,11 +1,7 @@
-require("dotenv").config();
-
 const fs = require("fs");
 const path = require("path");
 
-const {
-  getMatches
-} = require("../src/cricket-api");
+const BASE_URL = "https://api.bigballsdata.com/v1/cricket";
 
 function extractMatches(payload) {
   const candidates = [
@@ -18,23 +14,34 @@ function extractMatches(payload) {
     payload?.items
   ];
 
-  for (const value of candidates) {
-    if (Array.isArray(value)) {
-      return value;
-    }
-  }
-
-  return [];
+  return candidates.find(Array.isArray) || [];
 }
 
 async function main() {
-  if (!process.env.BBS_API_KEY) {
-    throw new Error("BBS_API_KEY is required");
+  const key = process.env.BBS_API_KEY;
+  if (!key) throw new Error("BBS_API_KEY is required");
+
+  const response = await fetch(`${BASE_URL}/matches`, {
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${key}`
+    }
+  });
+
+  const text = await response.text();
+  let payload;
+  try {
+    payload = text ? JSON.parse(text) : {};
+  } catch {
+    throw new Error(`Cricket API returned non-JSON (${response.status}): ${text.slice(0, 300)}`);
   }
 
-  const payload = await getMatches();
-  const matches = extractMatches(payload);
+  if (!response.ok) {
+    const message = payload?.error?.message || payload?.error || payload?.message || `Cricket API returned ${response.status}`;
+    throw new Error(String(message));
+  }
 
+  const matches = extractMatches(payload);
   const output = {
     ok: true,
     updatedAt: new Date().toISOString(),
@@ -42,27 +49,12 @@ async function main() {
     data: matches
   };
 
-  const outputPath = path.join(
-    __dirname,
-    "..",
-    "public",
-    "data",
-    "matches.json"
-  );
-
+  const outputPath = path.join(__dirname, "..", "public", "data", "matches.json");
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(
-    outputPath,
-    JSON.stringify(output, null, 2) + "\n",
-    "utf8"
-  );
+  fs.writeFileSync(outputPath, JSON.stringify(output, null, 2) + "\n", "utf8");
 
   console.log(`Fetched ${matches.length} cricket matches`);
   console.log(`Wrote cricket data to ${outputPath}`);
-
-  if (matches.length === 0) {
-    console.warn("The cricket API returned no match records.");
-  }
 }
 
 main().catch(error => {
