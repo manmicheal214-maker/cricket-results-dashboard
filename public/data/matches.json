@@ -1,5 +1,1523 @@
 {
   "ok": true,
-  "updatedAt": null,
-  "data": []
+  "updatedAt": "2026-08-08T20:03:38.599Z",
+  "count": 50,
+  "data": [
+    {
+      "id": "29dcc469-509d-4b40-8fbc-9125813f8578",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "South Africa",
+        "short_name": "RSA",
+        "logo_url": "https://g.cricapi.com/iapi/82-637877071839088912.webp?w=48"
+      },
+      "away": {
+        "name": "Bangladesh",
+        "short_name": "BAN",
+        "logo_url": "https://g.cricapi.com/iapi/9-637877074109248302.webp?w=48"
+      },
+      "kickoff_utc": "2026-12-13T12:30:00.000Z",
+      "status": "scheduled",
+      "score": null,
+      "linescore": null,
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "968b2580-fd8f-48b3-ae43-8721ed250fec",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "South Africa",
+        "short_name": "RSA",
+        "logo_url": "https://g.cricapi.com/iapi/82-637877071839088912.webp?w=48"
+      },
+      "away": {
+        "name": "Bangladesh",
+        "short_name": "BAN",
+        "logo_url": "https://g.cricapi.com/iapi/9-637877074109248302.webp?w=48"
+      },
+      "kickoff_utc": "2026-12-12T12:30:00.000Z",
+      "status": "scheduled",
+      "score": null,
+      "linescore": null,
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "854c9ebe-da87-4986-93ad-4fa2576019f9",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "South Africa",
+        "short_name": "RSA",
+        "logo_url": "https://g.cricapi.com/iapi/82-637877071839088912.webp?w=48"
+      },
+      "away": {
+        "name": "Bangladesh",
+        "short_name": "BAN",
+        "logo_url": "https://g.cricapi.com/iapi/9-637877074109248302.webp?w=48"
+      },
+      "kickoff_utc": "2026-12-10T16:00:00.000Z",
+      "status": "scheduled",
+      "score": null,
+      "linescore": null,
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "3646e825-891a-4bd4-bc86-14dd78af6aef",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "South Africa",
+        "short_name": "RSA",
+        "logo_url": "https://g.cricapi.com/iapi/82-637877071839088912.webp?w=48"
+      },
+      "away": {
+        "name": "Bangladesh",
+        "short_name": "BAN",
+        "logo_url": "https://g.cricapi.com/iapi/9-637877074109248302.webp?w=48"
+      },
+      "kickoff_utc": "2026-12-07T11:30:00.000Z",
+      "status": "scheduled",
+      "score": null,
+      "linescore": null,
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "8792ade6-4623-4666-ba66-00fd179c9e1c",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "South Africa",
+        "short_name": "RSA",
+        "logo_url": "https://g.cricapi.com/iapi/82-637877071839088912.webp?w=48"
+      },
+      "away": {
+        "name": "Bangladesh",
+        "short_name": "BAN",
+        "logo_url": "https://g.cricapi.com/iapi/9-637877074109248302.webp?w=48"
+      },
+      "kickoff_utc": "2026-12-04T11:30:00.000Z",
+      "status": "scheduled",
+      "score": null,
+      "linescore": null,
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "60630534-15fb-4617-a920-b8874b10fbce",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "South Africa",
+        "short_name": "RSA",
+        "logo_url": "https://g.cricapi.com/iapi/82-637877071839088912.webp?w=48"
+      },
+      "away": {
+        "name": "Bangladesh",
+        "short_name": "BAN",
+        "logo_url": "https://g.cricapi.com/iapi/9-637877074109248302.webp?w=48"
+      },
+      "kickoff_utc": "2026-12-01T11:30:00.000Z",
+      "status": "scheduled",
+      "score": null,
+      "linescore": null,
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "c19be616-e05b-496e-9785-371433e81a74",
+      "sport": "cricket",
+      "league": "Test Cricket",
+      "home": {
+        "name": "South Africa",
+        "short_name": "RSA",
+        "logo_url": "https://g.cricapi.com/iapi/82-637877071839088912.webp?w=48"
+      },
+      "away": {
+        "name": "Bangladesh",
+        "short_name": "BAN",
+        "logo_url": "https://g.cricapi.com/iapi/9-637877074109248302.webp?w=48"
+      },
+      "kickoff_utc": "2026-11-23T08:00:00.000Z",
+      "status": "scheduled",
+      "score": null,
+      "linescore": null,
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "9d77d50a-9169-4239-b359-423eeed15767",
+      "sport": "cricket",
+      "league": "Test Cricket",
+      "home": {
+        "name": "South Africa",
+        "short_name": "RSA",
+        "logo_url": "https://g.cricapi.com/iapi/82-637877071839088912.webp?w=48"
+      },
+      "away": {
+        "name": "Bangladesh",
+        "short_name": "BAN",
+        "logo_url": "https://g.cricapi.com/iapi/9-637877074109248302.webp?w=48"
+      },
+      "kickoff_utc": "2026-11-15T08:00:00.000Z",
+      "status": "scheduled",
+      "score": null,
+      "linescore": null,
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "0bf45765-eae2-4939-8fde-c93586692b05",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Southern Brave",
+        "short_name": "SOU",
+        "logo_url": "https://g.cricapi.com/iapi/274-637885742671987889.webp?w=48"
+      },
+      "away": {
+        "name": "Manchester Super Giants",
+        "short_name": "MSG",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-08T17:00:00.000Z",
+      "status": "live",
+      "score": {
+        "home": 24,
+        "away": 149
+      },
+      "linescore": {
+        "away": [
+          149
+        ],
+        "home": [
+          24
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "7291f780-35d0-4e8c-a9b9-e8db1499d8cd",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Jaffna Kings",
+        "short_name": "JKS",
+        "logo_url": "https://g.cricapi.com/iapi/188-637951181431298483.webp?w=48"
+      },
+      "away": {
+        "name": "Galle Gallants",
+        "short_name": null,
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-08T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 249,
+        "away": 0
+      },
+      "linescore": {
+        "away": [],
+        "home": [
+          123,
+          126
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "83368a19-fe14-4162-9c25-5fd7003c6331",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Trichy Grand Cholas",
+        "short_name": "TGC",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "SKM Salem Spartans",
+        "short_name": null,
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-08T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 307
+      },
+      "linescore": {
+        "away": [
+          152,
+          155
+        ],
+        "home": []
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "be54aae6-db73-4e69-b065-2c81fc023d46",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Southern Brave Women",
+        "short_name": "SBW",
+        "logo_url": "https://g.cricapi.com/iapi/2015-637967614770065340.webp?w=48"
+      },
+      "away": {
+        "name": "Manchester Super Giants Women",
+        "short_name": "MSGW",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-08T13:30:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 112,
+        "away": 139
+      },
+      "linescore": {
+        "away": [
+          139
+        ],
+        "home": [
+          112
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "ac58471e-b383-4a2f-a0db-b1bb2eb239ce",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Trent Rockets",
+        "short_name": "TRE",
+        "logo_url": "https://g.cricapi.com/iapi/292-637885742365093855.webp?w=48"
+      },
+      "away": {
+        "name": "Mi London",
+        "short_name": "MIL",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-08T13:30:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 148,
+        "away": 147
+      },
+      "linescore": {
+        "away": [
+          147
+        ],
+        "home": [
+          148
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "1e534878-dfba-4b20-b205-c16a155b99f0",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Trent Rockets Women",
+        "short_name": "TRW",
+        "logo_url": "https://g.cricapi.com/iapi/2034-637967614126146514.webp?w=48"
+      },
+      "away": {
+        "name": "Mi London Women",
+        "short_name": "MIL",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-08T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 125,
+        "away": 121
+      },
+      "linescore": {
+        "away": [
+          121
+        ],
+        "home": [
+          125
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "980a541b-d672-4c68-b654-55d8d0e93ef3",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Vida Kovai Kings",
+        "short_name": null,
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "Madurai Panthers",
+        "short_name": "MP",
+        "logo_url": "https://g.cricapi.com/iapi/217-637940203723122310.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-08T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 239,
+        "away": 240
+      },
+      "linescore": {
+        "away": [
+          240
+        ],
+        "home": [
+          239
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "f9c7c25f-5b64-496a-860a-32d4e37f699f",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Jamaica Kingsmen",
+        "short_name": null,
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "Antigua and Barbuda Falcons",
+        "short_name": null,
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-07T23:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 167,
+        "away": 168
+      },
+      "linescore": {
+        "away": [
+          168
+        ],
+        "home": [
+          167
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "826d7a7e-75eb-4ebb-bf85-1f46444aee98",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Sunrisers Leeds",
+        "short_name": "SL",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "Birmingham Phoenix",
+        "short_name": "BRM",
+        "logo_url": "https://g.cricapi.com/iapi/126-637885741951450455.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T17:30:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 169,
+        "away": 124
+      },
+      "linescore": {
+        "away": [
+          124
+        ],
+        "home": [
+          169
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "947f05ed-fec5-429b-b457-a2722a43fe73",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Galle Gallants",
+        "short_name": null,
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "Colombo Kaps",
+        "short_name": null,
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-07T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 177,
+        "away": 176
+      },
+      "linescore": {
+        "away": [
+          176
+        ],
+        "home": [
+          177
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "38dafb34-2983-4e12-87da-ef202b7510c3",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Sunrisers Leeds Women",
+        "short_name": "SLW",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "Birmingham Phoenix Women",
+        "short_name": "BPW",
+        "logo_url": "https://g.cricapi.com/iapi/2032-637967614376906477.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 111,
+        "away": 107
+      },
+      "linescore": {
+        "away": [
+          107
+        ],
+        "home": [
+          111
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "57b2619b-ebac-4c07-8aaf-16860b401d94",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Nellai Royal Kings",
+        "short_name": "NRK",
+        "logo_url": "https://g.cricapi.com/iapi/229-637939378110909048.webp?w=48"
+      },
+      "away": {
+        "name": "Dindigul Dragons",
+        "short_name": "DD",
+        "logo_url": "https://g.cricapi.com/iapi/153-637951184351143751.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 172,
+        "away": 170
+      },
+      "linescore": {
+        "away": [
+          170
+        ],
+        "home": [
+          172
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "2e6818f5-141e-400f-87d0-6bde83f80fe5",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Worcestershire",
+        "short_name": "WRCS",
+        "logo_url": "https://g.cricapi.com/iapi/1138-637889091123850841.webp?w=48"
+      },
+      "away": {
+        "name": "Sussex",
+        "short_name": "SUSS",
+        "logo_url": "https://g.cricapi.com/iapi/1134-637889091814592518.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T13:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 334,
+        "away": 333
+      },
+      "linescore": {
+        "away": [
+          333
+        ],
+        "home": [
+          334
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "0a93223a-4a85-43fd-9109-ec3cf46989b4",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Surrey",
+        "short_name": "SUR",
+        "logo_url": "https://g.cricapi.com/iapi/1133-637885552361099530.webp?w=48"
+      },
+      "away": {
+        "name": "Somerset",
+        "short_name": "SOM",
+        "logo_url": "https://g.cricapi.com/iapi/1131-637885552070524344.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T13:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 180,
+        "away": 368
+      },
+      "linescore": {
+        "away": [
+          368
+        ],
+        "home": [
+          180
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "3d751c43-4e6d-4640-be7e-d84095de9748",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Warwickshire",
+        "short_name": "WRKS",
+        "logo_url": "https://g.cricapi.com/iapi/1137-637885552592685258.webp?w=48"
+      },
+      "away": {
+        "name": "Leicestershire",
+        "short_name": "LECS",
+        "logo_url": "https://g.cricapi.com/iapi/1126-637889090878436462.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T13:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 220,
+        "away": 222
+      },
+      "linescore": {
+        "away": [
+          222
+        ],
+        "home": [
+          220
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "dbf42610-be3b-457a-b4f0-5cae87fb3073",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Middlesex",
+        "short_name": "MDX",
+        "logo_url": "https://g.cricapi.com/iapi/1127-637889091340507643.webp?w=48"
+      },
+      "away": {
+        "name": "Durham",
+        "short_name": "DURH",
+        "logo_url": "https://g.cricapi.com/iapi/1118-637889090599643548.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T12:30:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 307,
+        "away": 303
+      },
+      "linescore": {
+        "away": [
+          303
+        ],
+        "home": [
+          307
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "929fecb2-db27-494b-83fa-3951970aa975",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "IDream Tiruppur Tamizhans",
+        "short_name": "ITT",
+        "logo_url": "https://g.cricapi.com/iapi/181-637945148142038694.webp?w=48"
+      },
+      "away": {
+        "name": "Chepauk Super Gillies",
+        "short_name": "CSG",
+        "logo_url": "https://g.cricapi.com/iapi/136-637957472174708637.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 206,
+        "away": 205
+      },
+      "linescore": {
+        "away": [
+          205
+        ],
+        "home": [
+          206
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "abfe18f4-5b33-434c-af73-e1377f2ec5d9",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Glamorgan",
+        "short_name": "GLAM",
+        "logo_url": "https://g.cricapi.com/iapi/1120-637889090390357869.webp?w=48"
+      },
+      "away": {
+        "name": "Essex",
+        "short_name": "ESX",
+        "logo_url": "https://g.cricapi.com/iapi/1119-637885549753088458.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 309,
+        "away": 312
+      },
+      "linescore": {
+        "away": [
+          312
+        ],
+        "home": [
+          309
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "dd1f7615-f84e-49dd-9ac2-cf06ca202d65",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Lancashire",
+        "short_name": "LNCS",
+        "logo_url": "https://g.cricapi.com/iapi/1125-637885551497331567.webp?w=48"
+      },
+      "away": {
+        "name": "Gloucestershire",
+        "short_name": "GLOU",
+        "logo_url": "https://g.cricapi.com/iapi/1121-637885550747990018.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 273,
+        "away": 270
+      },
+      "linescore": {
+        "away": [
+          270
+        ],
+        "home": [
+          273
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "27500f26-abe3-43e3-911d-2908f44447c2",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Yorkshire",
+        "short_name": "YRK",
+        "logo_url": "https://g.cricapi.com/iapi/1139-637885552795894277.webp?w=48"
+      },
+      "away": {
+        "name": "Derbyshire",
+        "short_name": "DERB",
+        "logo_url": "https://g.cricapi.com/iapi/1117-637889091569915358.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 281,
+        "away": 278
+      },
+      "linescore": {
+        "away": [
+          278
+        ],
+        "home": [
+          281
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "62d50d61-6184-43a6-97a1-5c2027aff726",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Nottinghamshire",
+        "short_name": "NOT",
+        "logo_url": "https://g.cricapi.com/iapi/1130-637889092060873937.webp?w=48"
+      },
+      "away": {
+        "name": "Northamptonshire",
+        "short_name": "NOR",
+        "logo_url": "https://g.cricapi.com/iapi/1129-637885551856435418.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 261,
+        "away": 259
+      },
+      "linescore": {
+        "away": [
+          259
+        ],
+        "home": [
+          261
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "ce1cb85b-967b-4f7a-b27b-79fe6694049f",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Ireland",
+        "short_name": "IRE",
+        "logo_url": "https://g.cricapi.com/iapi/33-637926315578500224.png?w=48"
+      },
+      "away": {
+        "name": "Afghanistan",
+        "short_name": "AFG",
+        "logo_url": "https://g.cricapi.com/iapi/1-637877075587179422.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-07T09:45:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 207,
+        "away": 299
+      },
+      "linescore": {
+        "away": [
+          299
+        ],
+        "home": [
+          207
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "6b2e6ed1-9cb3-43eb-a0cb-715daf0cadf5",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Mi London",
+        "short_name": "MIL",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "London Spirit",
+        "short_name": "LDN",
+        "logo_url": "https://g.cricapi.com/iapi/213-637885742154787685.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-06T17:30:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 164,
+        "away": 160
+      },
+      "linescore": {
+        "away": [
+          160
+        ],
+        "home": [
+          164
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "63c98c13-7c0b-4603-8033-99f3788acbe3",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Mi London Women",
+        "short_name": "MIL",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "London Spirit Women",
+        "short_name": "LSW",
+        "logo_url": "https://g.cricapi.com/iapi/2012-637967615150875023.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-06T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 122,
+        "away": 119
+      },
+      "linescore": {
+        "away": [
+          119
+        ],
+        "home": [
+          122
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "50c28c31-9345-4975-ae86-55e77c8dc955",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Vida Kovai Kings",
+        "short_name": null,
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "SKM Salem Spartans",
+        "short_name": null,
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-06T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 194,
+        "away": 160
+      },
+      "linescore": {
+        "away": [
+          160
+        ],
+        "home": [
+          194
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "27df98e1-5eb4-4e5a-9613-3f2d9ace623d",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Trent Rockets",
+        "short_name": "TRE",
+        "logo_url": "https://g.cricapi.com/iapi/292-637885742365093855.webp?w=48"
+      },
+      "away": {
+        "name": "Birmingham Phoenix",
+        "short_name": "BRM",
+        "logo_url": "https://g.cricapi.com/iapi/126-637885741951450455.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-05T17:30:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 116,
+        "away": 111
+      },
+      "linescore": {
+        "away": [
+          111
+        ],
+        "home": [
+          116
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "c7f34bf0-cfee-4caa-88ff-6c78a983016b",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Welsh Fire",
+        "short_name": "WEF",
+        "logo_url": "https://g.cricapi.com/iapi/303-637885743181447004.webp?w=48"
+      },
+      "away": {
+        "name": "Manchester Super Giants",
+        "short_name": "MSG",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-05T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 155,
+        "away": 161
+      },
+      "linescore": {
+        "away": [
+          161
+        ],
+        "home": [
+          155
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "73a4ab38-9696-4ad0-a031-72645e09693d",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Kandy Royals",
+        "short_name": null,
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "Colombo Kaps",
+        "short_name": null,
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-05T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 338
+      },
+      "linescore": {
+        "away": [
+          203,
+          135
+        ],
+        "home": []
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "1856cb36-6bdc-4fb3-af0c-d5ad8d75f704",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Nellai Royal Kings",
+        "short_name": "NRK",
+        "logo_url": "https://g.cricapi.com/iapi/229-637939378110909048.webp?w=48"
+      },
+      "away": {
+        "name": "Chepauk Super Gillies",
+        "short_name": "CSG",
+        "logo_url": "https://g.cricapi.com/iapi/136-637957472174708637.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-05T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 204,
+        "away": 154
+      },
+      "linescore": {
+        "away": [
+          154
+        ],
+        "home": [
+          204
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "f13c1dd7-819f-4752-8afd-475447ef0865",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Trent Rockets Women",
+        "short_name": "TRW",
+        "logo_url": "https://g.cricapi.com/iapi/2034-637967614126146514.webp?w=48"
+      },
+      "away": {
+        "name": "Birmingham Phoenix Women",
+        "short_name": "BPW",
+        "logo_url": "https://g.cricapi.com/iapi/2032-637967614376906477.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-05T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 124,
+        "away": 122
+      },
+      "linescore": {
+        "away": [
+          122
+        ],
+        "home": [
+          124
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "dd466d82-428c-4b7e-88c0-66d882df8a76",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Welsh Fire Women",
+        "short_name": "WFW",
+        "logo_url": "https://g.cricapi.com/iapi/2035-637967614013026521.webp?w=48"
+      },
+      "away": {
+        "name": "Manchester Super Giants Women",
+        "short_name": "MSGW",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-05T10:30:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 88,
+        "away": 85
+      },
+      "linescore": {
+        "away": [
+          85
+        ],
+        "home": [
+          88
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "389319e0-dcee-4902-a82f-8f3afac74c4c",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Trichy Grand Cholas",
+        "short_name": "TGC",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "Madurai Panthers",
+        "short_name": "MP",
+        "logo_url": "https://g.cricapi.com/iapi/217-637940203723122310.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-05T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 173,
+        "away": 174
+      },
+      "linescore": {
+        "away": [
+          174
+        ],
+        "home": [
+          173
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "905297e6-5aa8-44fa-b53f-8f70d2a293a0",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Hampshire",
+        "short_name": "HAM",
+        "logo_url": "https://g.cricapi.com/iapi/1122-637885550993657486.webp?w=48"
+      },
+      "away": {
+        "name": "Glamorgan",
+        "short_name": "GLAM",
+        "logo_url": "https://g.cricapi.com/iapi/1120-637889090390357869.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-05T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 436,
+        "away": 0
+      },
+      "linescore": {
+        "away": [],
+        "home": [
+          263,
+          173
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "362874ac-1528-431d-aeb1-5408f88046bb",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Surrey",
+        "short_name": "SUR",
+        "logo_url": "https://g.cricapi.com/iapi/1133-637885552361099530.webp?w=48"
+      },
+      "away": {
+        "name": "Kent",
+        "short_name": "KENT",
+        "logo_url": "https://g.cricapi.com/iapi/1124-637885551212175895.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-05T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 286,
+        "away": 191
+      },
+      "linescore": {
+        "away": [
+          191
+        ],
+        "home": [
+          286
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "35455e2d-6b0d-41d7-b8b1-9c48f4b41492",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Jaffna Kings",
+        "short_name": "JKS",
+        "logo_url": "https://g.cricapi.com/iapi/188-637951181431298483.webp?w=48"
+      },
+      "away": {
+        "name": "Galle Gallants",
+        "short_name": null,
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-05T09:30:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 242,
+        "away": 230
+      },
+      "linescore": {
+        "away": [
+          230
+        ],
+        "home": [
+          242
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "4e019506-d746-4242-8365-ff5068dbd37e",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Sunrisers Leeds",
+        "short_name": "SL",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "London Spirit",
+        "short_name": "LDN",
+        "logo_url": "https://g.cricapi.com/iapi/213-637885742154787685.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-04T17:30:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 241,
+        "away": 204
+      },
+      "linescore": {
+        "away": [
+          204
+        ],
+        "home": [
+          241
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "5ec0a1d1-e44d-457a-8a10-dde558e8ad02",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "IDream Tiruppur Tamizhans",
+        "short_name": "ITT",
+        "logo_url": "https://g.cricapi.com/iapi/181-637945148142038694.webp?w=48"
+      },
+      "away": {
+        "name": "Dindigul Dragons",
+        "short_name": "DD",
+        "logo_url": "https://g.cricapi.com/iapi/153-637951184351143751.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-04T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 107,
+        "away": 111
+      },
+      "linescore": {
+        "away": [
+          111
+        ],
+        "home": [
+          107
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "64dbba75-ef6d-41f3-8c6e-ad7c4796a5e9",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Sunrisers Leeds Women",
+        "short_name": "SLW",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "London Spirit Women",
+        "short_name": "LSW",
+        "logo_url": "https://g.cricapi.com/iapi/2012-637967615150875023.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-04T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 142,
+        "away": 136
+      },
+      "linescore": {
+        "away": [
+          136
+        ],
+        "home": [
+          142
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "82f10fb9-58c3-58b8-8cd0-efebe2820315",
+      "sport": "cricket",
+      "league": "Pakistan Women tour of Sri Lanka",
+      "home": {
+        "name": "Sri Lanka Women",
+        "short_name": "SLW",
+        "logo_url": "https://g.cricapi.com/iapi/4191-638101639309122979.webp?w=48"
+      },
+      "away": {
+        "name": "Pakistan Women",
+        "short_name": "PAKW",
+        "logo_url": "https://g.cricapi.com/iapi/67-637877074931980375.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-04T00:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 113,
+        "away": 115
+      },
+      "linescore": {
+        "away": [
+          115
+        ],
+        "home": [
+          113
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "0ceb2df2-e51c-43a1-aa2c-ab5e5d97f5bb",
+      "sport": "cricket",
+      "league": "The Hundred Men's Competition",
+      "home": {
+        "name": "Welsh Fire",
+        "short_name": "WEF",
+        "logo_url": "https://g.cricapi.com/iapi/303-637885743181447004.webp?w=48"
+      },
+      "away": {
+        "name": "Southern Brave",
+        "short_name": "SOU",
+        "logo_url": "https://g.cricapi.com/iapi/274-637885742671987889.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-03T17:30:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 116,
+        "away": 115
+      },
+      "linescore": {
+        "away": [
+          115
+        ],
+        "home": [
+          116
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "c00e238f-158e-4b5b-81df-35d76f9e9f5b",
+      "sport": "cricket",
+      "league": "The Hundred Women's Competition",
+      "home": {
+        "name": "Welsh Fire Women",
+        "short_name": "WFW",
+        "logo_url": "https://g.cricapi.com/iapi/2035-637967614013026521.webp?w=48"
+      },
+      "away": {
+        "name": "Southern Brave Women",
+        "short_name": "SBW",
+        "logo_url": "https://g.cricapi.com/iapi/2015-637967614770065340.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-03T14:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 121,
+        "away": 122
+      },
+      "linescore": {
+        "away": [
+          122
+        ],
+        "home": [
+          121
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "e3ced55b-2cf3-45e9-8054-ed2ed00ecf6d",
+      "sport": "cricket",
+      "league": "The Hundred Men's Competition",
+      "home": {
+        "name": "Mi London",
+        "short_name": "MIL",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "away": {
+        "name": "Manchester Super Giants",
+        "short_name": "MSG",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-02T17:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 183,
+        "away": 138
+      },
+      "linescore": {
+        "away": [
+          138
+        ],
+        "home": [
+          183
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    }
+  ]
 }
