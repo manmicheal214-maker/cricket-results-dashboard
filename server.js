@@ -12,10 +12,27 @@ const {
 } = require("./src/cricket-api");
 
 const app = express();
-
 const PORT = process.env.PORT || 3000;
 
 app.disable("x-powered-by");
+
+/* Allow the GitHub Pages frontend to call this API. */
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+
+  if (origin === "https://manmicheal214-maker.github.io") {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+    res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  }
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
 
 app.use(express.json());
 
@@ -23,9 +40,7 @@ app.use(
   express.static(
     path.join(__dirname, "public"),
     {
-      maxAge: process.env.NODE_ENV === "production"
-        ? "1h"
-        : 0
+      maxAge: process.env.NODE_ENV === "production" ? "1h" : 0
     }
   )
 );
