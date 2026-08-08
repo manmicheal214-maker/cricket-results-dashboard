@@ -9,7 +9,11 @@
     }
 
     const path = url.replace(/^\.\//, "");
-    const response = await originalFetch("./data/matches.json", init);
+    const dataUrl = `./data/matches.json?v=${Date.now()}`;
+    const response = await originalFetch(dataUrl, {
+      ...(init || {}),
+      cache: "no-store"
+    });
     const payload = await response.json();
 
     if (path === "api/matches") {
@@ -29,14 +33,21 @@
           : [];
       const found = items.find(item => String(item.id ?? item.match_id ?? item.matchId ?? item.key) === id);
 
-      return new Response(JSON.stringify({ ok: Boolean(found), data: found ?? null, error: found ? undefined : "Match not found" }), {
+      return new Response(JSON.stringify({
+        ok: Boolean(found),
+        data: found ?? null,
+        error: found ? undefined : "Match not found"
+      }), {
         status: found ? 200 : 404,
         headers: { "Content-Type": "application/json" }
       });
     }
 
     if (path.match(/^api\/matches\/[^/]+\/scorecard$/)) {
-      return new Response(JSON.stringify({ ok: false, error: "Scorecards are not included in the static GitHub Pages dataset yet." }), {
+      return new Response(JSON.stringify({
+        ok: false,
+        error: "Scorecards are not included in the static GitHub Pages dataset yet."
+      }), {
         status: 501,
         headers: { "Content-Type": "application/json" }
       });
