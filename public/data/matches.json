@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-09T16:26:53.080Z",
+  "updatedAt": "2026-08-09T17:03:26.329Z",
   "sourceCount": 50,
   "count": 50,
   "data": [
@@ -181,6 +181,28 @@
       "has_odds": false
     },
     {
+      "id": "f048d092-2a07-4efd-a371-b1e468cf0e85",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "London Spirit",
+        "short_name": "LDN",
+        "logo_url": "https://g.cricapi.com/iapi/213-637885742154787685.webp?w=48"
+      },
+      "away": {
+        "name": "Birmingham Phoenix",
+        "short_name": "BRM",
+        "logo_url": "https://g.cricapi.com/iapi/126-637885741951450455.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-09T17:00:00.000Z",
+      "status": "live",
+      "score": null,
+      "linescore": null,
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
       "id": "1cdd112a-4ac4-4b20-a9af-4285ed7534b9",
       "sport": "cricket",
       "league": "T20I Cricket",
@@ -197,45 +219,15 @@
       "kickoff_utc": "2026-08-09T14:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 145,
-        "away": 0
-      },
-      "linescore": {
-        "away": [],
-        "home": [
-          145
-        ]
-      },
-      "attendance": null,
-      "broadcast": null,
-      "has_odds": false
-    },
-    {
-      "id": "d7ebdf19-dcf1-4ffa-ab25-7eb02b1186ca",
-      "sport": "cricket",
-      "league": "T20I Cricket",
-      "home": {
-        "name": "Welsh Fire",
-        "short_name": "WEF",
-        "logo_url": "https://g.cricapi.com/iapi/303-637885743181447004.webp?w=48"
-      },
-      "away": {
-        "name": "Sunrisers Leeds",
-        "short_name": "SL",
-        "logo_url": "https://h.cricapi.com/img/icon512.png"
-      },
-      "kickoff_utc": "2026-08-09T13:30:00.000Z",
-      "status": "live",
-      "score": {
-        "home": 101,
-        "away": 201
+        "home": 206,
+        "away": 156
       },
       "linescore": {
         "away": [
-          201
+          156
         ],
         "home": [
-          101
+          206
         ]
       },
       "attendance": null,
@@ -257,17 +249,49 @@
         "logo_url": "https://g.cricapi.com/iapi/2032-637967614376906477.webp?w=48"
       },
       "kickoff_utc": "2026-08-09T13:30:00.000Z",
-      "status": "live",
+      "status": "finished",
       "score": {
         "home": 140,
-        "away": 48
+        "away": 108
       },
       "linescore": {
         "away": [
-          48
+          108
         ],
         "home": [
           140
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "d7ebdf19-dcf1-4ffa-ab25-7eb02b1186ca",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Welsh Fire",
+        "short_name": "WEF",
+        "logo_url": "https://g.cricapi.com/iapi/303-637885743181447004.webp?w=48"
+      },
+      "away": {
+        "name": "Sunrisers Leeds",
+        "short_name": "SL",
+        "logo_url": "https://h.cricapi.com/img/icon512.png"
+      },
+      "kickoff_utc": "2026-08-09T13:30:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 130,
+        "away": 201
+      },
+      "linescore": {
+        "away": [
+          201
+        ],
+        "home": [
+          130
         ]
       },
       "attendance": null,
@@ -324,11 +348,11 @@
       "status": "live",
       "score": {
         "home": 327,
-        "away": 120
+        "away": 179
       },
       "linescore": {
         "away": [
-          120
+          179
         ],
         "home": [
           327
@@ -355,7 +379,7 @@
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 75,
+        "home": 157,
         "away": 229
       },
       "linescore": {
@@ -363,7 +387,7 @@
           229
         ],
         "home": [
-          75
+          157
         ]
       },
       "attendance": null,
@@ -388,11 +412,11 @@
       "status": "live",
       "score": {
         "home": 278,
-        "away": 112
+        "away": 175
       },
       "linescore": {
         "away": [
-          112
+          175
         ],
         "home": [
           278
@@ -484,11 +508,11 @@
       "status": "live",
       "score": {
         "home": 279,
-        "away": 190
+        "away": 240
       },
       "linescore": {
         "away": [
-          190
+          240
         ],
         "home": [
           279
@@ -516,11 +540,11 @@
       "status": "live",
       "score": {
         "home": 261,
-        "away": 136
+        "away": 240
       },
       "linescore": {
         "away": [
-          136
+          240
         ],
         "home": [
           261
@@ -547,7 +571,7 @@
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 141,
+        "home": 185,
         "away": 383
       },
       "linescore": {
@@ -555,7 +579,7 @@
           383
         ],
         "home": [
-          141
+          185
         ]
       },
       "attendance": null,
@@ -579,7 +603,7 @@
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 194,
+        "home": 236,
         "away": 311
       },
       "linescore": {
@@ -587,7 +611,7 @@
           311
         ],
         "home": [
-          194
+          236
         ]
       },
       "attendance": null,
@@ -1482,38 +1506,6 @@
         ],
         "home": [
           204
-        ]
-      },
-      "attendance": null,
-      "broadcast": null,
-      "has_odds": false
-    },
-    {
-      "id": "f13c1dd7-819f-4752-8afd-475447ef0865",
-      "sport": "cricket",
-      "league": "T20I Cricket",
-      "home": {
-        "name": "Trent Rockets Women",
-        "short_name": "TRW",
-        "logo_url": "https://g.cricapi.com/iapi/2034-637967614126146514.webp?w=48"
-      },
-      "away": {
-        "name": "Birmingham Phoenix Women",
-        "short_name": "BPW",
-        "logo_url": "https://g.cricapi.com/iapi/2032-637967614376906477.webp?w=48"
-      },
-      "kickoff_utc": "2026-08-05T14:00:00.000Z",
-      "status": "finished",
-      "score": {
-        "home": 124,
-        "away": 122
-      },
-      "linescore": {
-        "away": [
-          122
-        ],
-        "home": [
-          124
         ]
       },
       "attendance": null,
