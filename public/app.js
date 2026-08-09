@@ -70,9 +70,7 @@ function renderMatch(match) {
   const date = match.kickoff_utc || match.date || match.startTime || match.startDate;
   const status = match.status || "scheduled";
   const score = scoreText(match);
-  const homeLogo = typeof home === "object" ? home.logo_url : "";
-  const awayLogo = typeof away === "object" ? away.logo_url : "";
-  return `<article class="match-card"><div class="match-meta"><span>${escapeHtml(competition)}</span><span>${escapeHtml(status)}</span>${date ? `<span>${escapeHtml(formatDate(date))}</span>` : ""}</div><div class="teams"><div class="team">${homeLogo ? `<img src="${escapeHtml(homeLogo)}" alt="">` : ""}<strong>${escapeHtml(teamName(home))}</strong></div><span>vs</span><div class="team">${awayLogo ? `<img src="${escapeHtml(awayLogo)}" alt="">` : ""}<strong>${escapeHtml(teamName(away))}</strong></div></div><div class="score">${escapeHtml(score)}</div></article>`;
+  return `<article class="match-card"><div class="match-meta"><span>${escapeHtml(competition)}</span><span>${escapeHtml(status)}</span>${date ? `<span>${escapeHtml(formatDate(date))}</span>` : ""}</div><div class="teams"><div class="team"><strong>${escapeHtml(teamName(home))}</strong></div><span>vs</span><div class="team"><strong>${escapeHtml(teamName(away))}</strong></div></div><div class="score">${escapeHtml(score)}</div></article>`;
 }
 
 $("#refresh")?.addEventListener("click", load);
