@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-09T02:55:45.175Z",
+  "updatedAt": "2026-08-09T04:10:32.586Z",
   "count": 50,
   "data": [
     {
@@ -194,16 +194,18 @@
         "logo_url": "https://g.cricapi.com/iapi/277-637937608859640652.webp?w=48"
       },
       "kickoff_utc": "2026-08-08T23:00:00.000Z",
-      "status": "live",
+      "status": "finished",
       "score": {
-        "home": 0,
+        "home": 94,
         "away": 109
       },
       "linescore": {
         "away": [
           109
         ],
-        "home": []
+        "home": [
+          94
+        ]
       },
       "attendance": null,
       "broadcast": null,
