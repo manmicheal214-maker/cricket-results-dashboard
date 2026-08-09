@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-09T17:54:23.582Z",
+  "updatedAt": "2026-08-09T18:22:11.162Z",
   "sourceCount": 50,
   "count": 50,
   "data": [
@@ -196,8 +196,16 @@
       },
       "kickoff_utc": "2026-08-09T17:00:00.000Z",
       "status": "live",
-      "score": null,
-      "linescore": null,
+      "score": {
+        "home": 0,
+        "away": 91
+      },
+      "linescore": {
+        "away": [
+          91
+        ],
+        "home": []
+      },
       "attendance": null,
       "broadcast": null,
       "has_odds": false
@@ -217,14 +225,14 @@
         "logo_url": "https://g.cricapi.com/iapi/181-637945148142038694.webp?w=48"
       },
       "kickoff_utc": "2026-08-09T14:00:00.000Z",
-      "status": "live",
+      "status": "finished",
       "score": {
         "home": 206,
-        "away": 156
+        "away": 207
       },
       "linescore": {
         "away": [
-          156
+          207
         ],
         "home": [
           206
@@ -299,6 +307,102 @@
       "has_odds": false
     },
     {
+      "id": "7cd4457b-cace-4885-af11-50f436b978fa",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Nottinghamshire",
+        "short_name": "NOT",
+        "logo_url": "https://g.cricapi.com/iapi/1130-637889092060873937.webp?w=48"
+      },
+      "away": {
+        "name": "Gloucestershire",
+        "short_name": "GLOU",
+        "logo_url": "https://g.cricapi.com/iapi/1121-637885550747990018.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-09T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 279,
+        "away": 282
+      },
+      "linescore": {
+        "away": [
+          282
+        ],
+        "home": [
+          279
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "d86c0736-4cad-4eee-9153-89a34363a552",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Warwickshire",
+        "short_name": "WRKS",
+        "logo_url": "https://g.cricapi.com/iapi/1137-637885552592685258.webp?w=48"
+      },
+      "away": {
+        "name": "Lancashire",
+        "short_name": "LNCS",
+        "logo_url": "https://g.cricapi.com/iapi/1125-637885551497331567.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-09T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 314,
+        "away": 311
+      },
+      "linescore": {
+        "away": [
+          311
+        ],
+        "home": [
+          314
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "8192d17d-6f9e-4548-b0bd-a97ba887a7b8",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Sussex",
+        "short_name": "SUSS",
+        "logo_url": "https://g.cricapi.com/iapi/1134-637889091814592518.webp?w=48"
+      },
+      "away": {
+        "name": "Hampshire",
+        "short_name": "HAM",
+        "logo_url": "https://g.cricapi.com/iapi/1122-637885550993657486.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-09T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 332,
+        "away": 383
+      },
+      "linescore": {
+        "away": [
+          383
+        ],
+        "home": [
+          332
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
       "id": "a6e20cfb-4fd5-4df8-9d6c-87cefc7a0595",
       "sport": "cricket",
       "league": "ODI Cricket",
@@ -331,6 +435,38 @@
       "has_odds": false
     },
     {
+      "id": "fda07cf5-961c-4c30-9891-444de48989b2",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Leicestershire",
+        "short_name": "LECS",
+        "logo_url": "https://g.cricapi.com/iapi/1126-637889090878436462.webp?w=48"
+      },
+      "away": {
+        "name": "Kent",
+        "short_name": "KENT",
+        "logo_url": "https://g.cricapi.com/iapi/1124-637885551212175895.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-09T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 261,
+        "away": 262
+      },
+      "linescore": {
+        "away": [
+          262
+        ],
+        "home": [
+          261
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
       "id": "2f2fe953-4b08-423a-a86f-1ab1f8776090",
       "sport": "cricket",
       "league": "ODI Cricket",
@@ -345,14 +481,14 @@
         "logo_url": "https://g.cricapi.com/iapi/1117-637889091569915358.webp?w=48"
       },
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
-      "status": "live",
+      "status": "finished",
       "score": {
         "home": 327,
-        "away": 179
+        "away": 240
       },
       "linescore": {
         "away": [
-          179
+          240
         ],
         "home": [
           327
@@ -377,9 +513,9 @@
         "logo_url": "https://g.cricapi.com/iapi/1118-637889090599643548.webp?w=48"
       },
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
-      "status": "live",
+      "status": "finished",
       "score": {
-        "home": 157,
+        "home": 209,
         "away": 229
       },
       "linescore": {
@@ -387,7 +523,7 @@
           229
         ],
         "home": [
-          157
+          209
         ]
       },
       "attendance": null,
@@ -409,14 +545,14 @@
         "logo_url": "https://g.cricapi.com/iapi/1120-637889090390357869.webp?w=48"
       },
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
-      "status": "live",
+      "status": "finished",
       "score": {
         "home": 278,
-        "away": 175
+        "away": 281
       },
       "linescore": {
         "away": [
-          175
+          281
         ],
         "home": [
           278
@@ -484,134 +620,6 @@
         ],
         "home": [
           126
-        ]
-      },
-      "attendance": null,
-      "broadcast": null,
-      "has_odds": false
-    },
-    {
-      "id": "7cd4457b-cace-4885-af11-50f436b978fa",
-      "sport": "cricket",
-      "league": "ODI Cricket",
-      "home": {
-        "name": "Nottinghamshire",
-        "short_name": "NOT",
-        "logo_url": "https://g.cricapi.com/iapi/1130-637889092060873937.webp?w=48"
-      },
-      "away": {
-        "name": "Gloucestershire",
-        "short_name": "GLOU",
-        "logo_url": "https://g.cricapi.com/iapi/1121-637885550747990018.webp?w=48"
-      },
-      "kickoff_utc": "2026-08-09T10:00:00.000Z",
-      "status": "live",
-      "score": {
-        "home": 279,
-        "away": 240
-      },
-      "linescore": {
-        "away": [
-          240
-        ],
-        "home": [
-          279
-        ]
-      },
-      "attendance": null,
-      "broadcast": null,
-      "has_odds": false
-    },
-    {
-      "id": "fda07cf5-961c-4c30-9891-444de48989b2",
-      "sport": "cricket",
-      "league": "ODI Cricket",
-      "home": {
-        "name": "Leicestershire",
-        "short_name": "LECS",
-        "logo_url": "https://g.cricapi.com/iapi/1126-637889090878436462.webp?w=48"
-      },
-      "away": {
-        "name": "Kent",
-        "short_name": "KENT",
-        "logo_url": "https://g.cricapi.com/iapi/1124-637885551212175895.webp?w=48"
-      },
-      "kickoff_utc": "2026-08-09T10:00:00.000Z",
-      "status": "live",
-      "score": {
-        "home": 261,
-        "away": 240
-      },
-      "linescore": {
-        "away": [
-          240
-        ],
-        "home": [
-          261
-        ]
-      },
-      "attendance": null,
-      "broadcast": null,
-      "has_odds": false
-    },
-    {
-      "id": "8192d17d-6f9e-4548-b0bd-a97ba887a7b8",
-      "sport": "cricket",
-      "league": "ODI Cricket",
-      "home": {
-        "name": "Sussex",
-        "short_name": "SUSS",
-        "logo_url": "https://g.cricapi.com/iapi/1134-637889091814592518.webp?w=48"
-      },
-      "away": {
-        "name": "Hampshire",
-        "short_name": "HAM",
-        "logo_url": "https://g.cricapi.com/iapi/1122-637885550993657486.webp?w=48"
-      },
-      "kickoff_utc": "2026-08-09T10:00:00.000Z",
-      "status": "live",
-      "score": {
-        "home": 185,
-        "away": 383
-      },
-      "linescore": {
-        "away": [
-          383
-        ],
-        "home": [
-          185
-        ]
-      },
-      "attendance": null,
-      "broadcast": null,
-      "has_odds": false
-    },
-    {
-      "id": "d86c0736-4cad-4eee-9153-89a34363a552",
-      "sport": "cricket",
-      "league": "ODI Cricket",
-      "home": {
-        "name": "Warwickshire",
-        "short_name": "WRKS",
-        "logo_url": "https://g.cricapi.com/iapi/1137-637885552592685258.webp?w=48"
-      },
-      "away": {
-        "name": "Lancashire",
-        "short_name": "LNCS",
-        "logo_url": "https://g.cricapi.com/iapi/1125-637885551497331567.webp?w=48"
-      },
-      "kickoff_utc": "2026-08-09T10:00:00.000Z",
-      "status": "live",
-      "score": {
-        "home": 236,
-        "away": 311
-      },
-      "linescore": {
-        "away": [
-          311
-        ],
-        "home": [
-          236
         ]
       },
       "attendance": null,
