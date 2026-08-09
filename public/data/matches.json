@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-09T13:28:17.957Z",
+  "updatedAt": "2026-08-09T14:06:13.568Z",
   "sourceCount": 50,
   "count": 50,
   "data": [
@@ -181,6 +181,28 @@
       "has_odds": false
     },
     {
+      "id": "1cdd112a-4ac4-4b20-a9af-4285ed7534b9",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Nellai Royal Kings",
+        "short_name": "NRK",
+        "logo_url": "https://g.cricapi.com/iapi/229-637939378110909048.webp?w=48"
+      },
+      "away": {
+        "name": "IDream Tiruppur Tamizhans",
+        "short_name": "ITT",
+        "logo_url": "https://g.cricapi.com/iapi/181-637945148142038694.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-09T14:00:00.000Z",
+      "status": "live",
+      "score": null,
+      "linescore": null,
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
       "id": "9b1f7667-24c1-4456-8ac3-a81c13b7063c",
       "sport": "cricket",
       "league": "T20I Cricket",
@@ -195,9 +217,17 @@
         "logo_url": "https://g.cricapi.com/iapi/2032-637967614376906477.webp?w=48"
       },
       "kickoff_utc": "2026-08-09T13:30:00.000Z",
-      "status": "scheduled",
-      "score": null,
-      "linescore": null,
+      "status": "live",
+      "score": {
+        "home": 32,
+        "away": 0
+      },
+      "linescore": {
+        "away": [],
+        "home": [
+          32
+        ]
+      },
       "attendance": null,
       "broadcast": null,
       "has_odds": false
@@ -217,9 +247,17 @@
         "logo_url": "https://h.cricapi.com/img/icon512.png"
       },
       "kickoff_utc": "2026-08-09T13:30:00.000Z",
-      "status": "scheduled",
-      "score": null,
-      "linescore": null,
+      "status": "live",
+      "score": {
+        "home": 0,
+        "away": 60
+      },
+      "linescore": {
+        "away": [
+          60
+        ],
+        "home": []
+      },
       "attendance": null,
       "broadcast": null,
       "has_odds": false
@@ -242,11 +280,11 @@
       "status": "live",
       "score": {
         "home": 0,
-        "away": 224
+        "away": 287
       },
       "linescore": {
         "away": [
-          224
+          287
         ],
         "home": []
       },
@@ -272,11 +310,11 @@
       "status": "live",
       "score": {
         "home": 0,
-        "away": 216
+        "away": 298
       },
       "linescore": {
         "away": [
-          216
+          298
         ],
         "home": []
       },
@@ -301,13 +339,13 @@
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 177,
+        "home": 185,
         "away": 0
       },
       "linescore": {
         "away": [],
         "home": [
-          177
+          185
         ]
       },
       "attendance": null,
@@ -331,13 +369,13 @@
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 170,
+        "home": 218,
         "away": 0
       },
       "linescore": {
         "away": [],
         "home": [
-          170
+          218
         ]
       },
       "attendance": null,
@@ -361,13 +399,47 @@
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 237,
-        "away": 0
+        "home": 279,
+        "away": 29
       },
       "linescore": {
-        "away": [],
+        "away": [
+          29
+        ],
         "home": [
-          237
+          279
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "c20efe62-7291-4a60-85af-19c45cd9edb1",
+      "sport": "cricket",
+      "league": "T20I Cricket",
+      "home": {
+        "name": "Dindigul Dragons",
+        "short_name": "DD",
+        "logo_url": "https://g.cricapi.com/iapi/153-637951184351143751.webp?w=48"
+      },
+      "away": {
+        "name": "Chepauk Super Gillies",
+        "short_name": "CSG",
+        "logo_url": "https://g.cricapi.com/iapi/136-637957472174708637.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-09T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 126,
+        "away": 59
+      },
+      "linescore": {
+        "away": [
+          59
+        ],
+        "home": [
+          126
         ]
       },
       "attendance": null,
@@ -407,38 +479,6 @@
       "has_odds": false
     },
     {
-      "id": "c20efe62-7291-4a60-85af-19c45cd9edb1",
-      "sport": "cricket",
-      "league": "T20I Cricket",
-      "home": {
-        "name": "Dindigul Dragons",
-        "short_name": "DD",
-        "logo_url": "https://g.cricapi.com/iapi/153-637951184351143751.webp?w=48"
-      },
-      "away": {
-        "name": "Chepauk Super Gillies",
-        "short_name": "CSG",
-        "logo_url": "https://g.cricapi.com/iapi/136-637957472174708637.webp?w=48"
-      },
-      "kickoff_utc": "2026-08-09T10:00:00.000Z",
-      "status": "live",
-      "score": {
-        "home": 126,
-        "away": 38
-      },
-      "linescore": {
-        "away": [
-          38
-        ],
-        "home": [
-          126
-        ]
-      },
-      "attendance": null,
-      "broadcast": null,
-      "has_odds": false
-    },
-    {
       "id": "2f2fe953-4b08-423a-a86f-1ab1f8776090",
       "sport": "cricket",
       "league": "ODI Cricket",
@@ -455,13 +495,15 @@
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 242,
-        "away": 0
+        "home": 327,
+        "away": 4
       },
       "linescore": {
-        "away": [],
+        "away": [
+          4
+        ],
         "home": [
-          242
+          327
         ]
       },
       "attendance": null,
@@ -486,11 +528,11 @@
       "status": "live",
       "score": {
         "home": 0,
-        "away": 63
+        "away": 138
       },
       "linescore": {
         "away": [
-          63
+          138
         ],
         "home": []
       },
@@ -515,13 +557,13 @@
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 203,
+        "home": 278,
         "away": 0
       },
       "linescore": {
         "away": [],
         "home": [
-          203
+          278
         ]
       },
       "attendance": null,
@@ -1449,37 +1491,6 @@
         "home": [
           124
         ]
-      },
-      "attendance": null,
-      "broadcast": null,
-      "has_odds": false
-    },
-    {
-      "id": "73a4ab38-9696-4ad0-a031-72645e09693d",
-      "sport": "cricket",
-      "league": "T20I Cricket",
-      "home": {
-        "name": "Kandy Royals",
-        "short_name": null,
-        "logo_url": "https://h.cricapi.com/img/icon512.png"
-      },
-      "away": {
-        "name": "Colombo Kaps",
-        "short_name": null,
-        "logo_url": "https://h.cricapi.com/img/icon512.png"
-      },
-      "kickoff_utc": "2026-08-05T14:00:00.000Z",
-      "status": "finished",
-      "score": {
-        "home": 0,
-        "away": 338
-      },
-      "linescore": {
-        "away": [
-          203,
-          135
-        ],
-        "home": []
       },
       "attendance": null,
       "broadcast": null,
