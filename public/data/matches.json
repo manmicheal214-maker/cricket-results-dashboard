@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-09T00:47:26.918Z",
+  "updatedAt": "2026-08-09T02:55:45.175Z",
   "count": 50,
   "data": [
     {
@@ -197,11 +197,11 @@
       "status": "live",
       "score": {
         "home": 0,
-        "away": 46
+        "away": 109
       },
       "linescore": {
         "away": [
-          46
+          109
         ],
         "home": []
       },
