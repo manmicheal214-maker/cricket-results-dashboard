@@ -9,16 +9,40 @@ async function load() {
     const response = await fetch(new URL("data/matches.json?t=" + Date.now(), document.baseURI).href, { cache: "no-store", signal: controller.signal });
     clearTimeout(timeout);
     if (!response.ok) throw new Error(`Data request failed (${response.status})`);
-    const text = await response.text();
-    if (text.trim().startsWith("<")) throw new Error("The data URL returned HTML instead of JSON");
-    const payload = JSON.parse(text); state.matches = Array.isArray(payload.data) ? payload.data : []; render();
+    const text = await response.text(); if (text.trim().startsWith("<")) throw new Error("The data URL returned HTML instead of JSON");
+    const payload = JSON.parse(text); state.matches = dedupeMatches(Array.isArray(payload.data) ? payload.data : []); render();
   } catch (error) {
     clearTimeout(timeout); message.textContent = error.name === "AbortError" ? "Unable to load matches: request timed out" : `Unable to load matches: ${error.message}`;
     container.innerHTML = ""; empty.classList.remove("hidden"); empty.querySelector("h2").textContent = "Unable to load matches"; empty.querySelector("p").textContent = "Check the GitHub Actions data update and try Refresh.";
   }
 }
-function normalize(v){return String(v??"").toLowerCase()}
+function normalize(v){return String(v??"").trim().toLowerCase()}
 function matchText(m){return normalize(JSON.stringify(m))}
+function matchKey(m){
+  if(m?.id!=null && String(m.id).trim()) return `id:${m.id}`;
+  const home=normalize(teamName(m.home||m.homeTeam||m.team1||m.teamA));
+  const away=normalize(teamName(m.away||m.awayTeam||m.team2||m.teamB));
+  const date=m.kickoff_utc||m.date||m.startTime||m.startDate||"";
+  const day=date?new Date(date).toISOString().slice(0,10):"";
+  const competition=normalize(m.league||m.seriesName||m.series||m.competition||m.tournament);
+  return `fixture:${home}|${away}|${day}|${competition}`;
+}
+function dedupeMatches(list){
+  const map=new Map();
+  for(const match of list){
+    const key=matchKey(match), existing=map.get(key);
+    if(!existing){map.set(key,match);continue;}
+    // Prefer the richer/current record when the feed contains the same fixture twice.
+    const richness=Object.keys(match||{}).length;
+    const existingRichness=Object.keys(existing||{}).length;
+    const currentStatus=normalize(match.status||match.state||match.matchStatus);
+    const existingStatus=normalize(existing.status||existing.state||existing.matchStatus);
+    const currentLive=currentStatus.includes("live")||currentStatus.includes("progress")||currentStatus.includes("in play");
+    const existingLive=existingStatus.includes("live")||existingStatus.includes("progress")||existingStatus.includes("in play");
+    if(currentLive&&!existingLive || richness>existingRichness) map.set(key,match);
+  }
+  return [...map.values()];
+}
 function statusOf(m){const v=normalize(m.status||m.state||m.matchStatus);if(v.includes("live")||v.includes("progress")||v.includes("in play"))return"live";if(v.includes("complete")||v.includes("result")||v.includes("finish"))return"completed";return"upcoming"}
 function teamName(t){return typeof t==="string"?t:t?.name||t?.teamName||t?.short_name||t?.shortName||"Team"}
 function teamCountry(t){return typeof t==="object"?t?.country||t?.countryName||t?.code||"":""}
@@ -36,7 +60,7 @@ function situationText(m){return m.situation||m.match_situation||m.description||
 function logoHtml(t){const logo=teamLogo(t),flag=teamFlag(t);return`<span class="team-mark">${logo?`<img src="${escapeHtml(logo)}" alt="">`:`<span class="team-initial">${escapeHtml(teamName(t).charAt(0))}</span>`}</span>${flag?`<span class="flag">${flag}</span>`:""}`}
 function render(){
   const filtered=state.matches.filter(m=>{const s=statusOf(m),c=m.league||m.seriesName||m.series||m.competition||m.tournament||"Other";return(state.filter==="all"||s===state.filter)&&(state.competition==="all"||c===state.competition)&&(!state.query||matchText(m).includes(normalize(state.query)))}).sort((a,b)=>new Date(b.kickoff_utc||b.date||0)-new Date(a.kickoff_utc||a.date||0));
-  $("#message").textContent=`${filtered.length} matches`;const container=$("#matches"),empty=$("#empty");if(filtered.length){container.innerHTML=filtered.map(renderMatch).join("");empty.classList.add("hidden")}else{container.innerHTML="";empty.classList.remove("hidden");empty.querySelector("h2").textContent="No matches found";empty.querySelector("p").textContent="Try another search or filter."}
+  $("#message").textContent=`${filtered.length} unique matches`;const container=$("#matches"),empty=$("#empty");if(filtered.length){container.innerHTML=filtered.map(renderMatch).join("");empty.classList.add("hidden")}else{container.innerHTML="";empty.classList.remove("hidden");empty.querySelector("h2").textContent="No matches found";empty.querySelector("p").textContent="Try another search or filter."}
   const competitions=[...new Set(state.matches.map(m=>m.league||m.seriesName||m.series||m.competition||m.tournament).filter(Boolean))].sort();const select=$("#series");if(select){const current=state.competition;select.innerHTML='<option value="all">All competitions</option>'+competitions.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");select.value=competitions.includes(current)?current:"all"}
 }
 function renderMatch(m){const home=m.home||m.homeTeam||m.team1||m.teamA,away=m.away||m.awayTeam||m.team2||m.teamB,c=m.league||m.seriesName||m.series||m.competition||m.tournament||"Cricket",date=m.kickoff_utc||m.date||m.startTime||m.startDate,s=statusOf(m),label=s==="live"?"LIVE":s==="completed"?"COMPLETED":"UPCOMING",v=venueText(m),hs=scoreText(m,"home"),as=scoreText(m,"away"),ho=oversText(m,"home"),ao=oversText(m,"away"),hr=runRate(m,"home"),ar=runRate(m,"away"),situation=situationText(m);return`<article class="match-card ${s==="live"?"is-live":""}" tabindex="0" role="button"><div class="match-head"><div><span class="tournament">${escapeHtml(c)}</span><span class="match-date">${date?escapeHtml(formatDate(date)):"Date TBC"}</span></div><span class="status-badge ${s}"><i></i>${label}</span></div><div class="match-grid"><div class="teams-cell"><div class="team-line"><span class="team-identity">${logoHtml(home)}<strong>${escapeHtml(teamName(home))}</strong></span><span class="batting-dot ${s==="live"?"on":""}></span></div><div class="team-line"><span class="team-identity">${logoHtml(away)}<strong>${escapeHtml(teamName(away))}</strong></span></div></div><div class="score-cell"><div class="score-main"><strong>${escapeHtml(hs)}</strong><span>·</span><strong>${escapeHtml(as)}</strong></div><div class="overs">${escapeHtml(ho)}${hr?` · RR ${escapeHtml(hr)}`:""}</div><div class="away-overs">${escapeHtml(ao)}${ar?` · RR ${escapeHtml(ar)}`:""}</div></div><div class="status-cell"><span class="status-badge ${s}"><i></i>${label}</span>${situation?`<div class="situation">${escapeHtml(situation)}</div>`:""}</div><div class="venue-cell"><strong>${escapeHtml(v[0]||"Venue TBC")}</strong><span>${escapeHtml(v[1]||"")}</span></div><div class="action-cell"><button class="scorecard-btn" type="button">View Scorecard <span>→</span></button></div></div>${situation?`<div class="mobile-situation">${escapeHtml(situation)}</div>`:""}</article>`}
