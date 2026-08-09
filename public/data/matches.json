@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-09T15:57:13.876Z",
+  "updatedAt": "2026-08-09T16:26:53.080Z",
   "sourceCount": 50,
   "count": 50,
   "data": [
@@ -197,13 +197,13 @@
       "kickoff_utc": "2026-08-09T14:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 134,
+        "home": 145,
         "away": 0
       },
       "linescore": {
         "away": [],
         "home": [
-          134
+          145
         ]
       },
       "attendance": null,
@@ -227,14 +227,16 @@
       "kickoff_utc": "2026-08-09T13:30:00.000Z",
       "status": "live",
       "score": {
-        "home": 0,
+        "home": 101,
         "away": 201
       },
       "linescore": {
         "away": [
           201
         ],
-        "home": []
+        "home": [
+          101
+        ]
       },
       "attendance": null,
       "broadcast": null,
@@ -258,12 +260,46 @@
       "status": "live",
       "score": {
         "home": 140,
-        "away": 0
+        "away": 48
       },
       "linescore": {
-        "away": [],
+        "away": [
+          48
+        ],
         "home": [
           140
+        ]
+      },
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "a6e20cfb-4fd5-4df8-9d6c-87cefc7a0595",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Somerset",
+        "short_name": "SOM",
+        "logo_url": "https://g.cricapi.com/iapi/1131-637885552070524344.webp?w=48"
+      },
+      "away": {
+        "name": "Northamptonshire",
+        "short_name": "NOR",
+        "logo_url": "https://g.cricapi.com/iapi/1129-637885551856435418.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-09T10:00:00.000Z",
+      "status": "finished",
+      "score": {
+        "home": 185,
+        "away": 189
+      },
+      "linescore": {
+        "away": [
+          189
+        ],
+        "home": [
+          185
         ]
       },
       "attendance": null,
@@ -288,11 +324,11 @@
       "status": "live",
       "score": {
         "home": 327,
-        "away": 62
+        "away": 120
       },
       "linescore": {
         "away": [
-          62
+          120
         ],
         "home": [
           327
@@ -319,14 +355,16 @@
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 0,
+        "home": 75,
         "away": 229
       },
       "linescore": {
         "away": [
           229
         ],
-        "home": []
+        "home": [
+          75
+        ]
       },
       "attendance": null,
       "broadcast": null,
@@ -350,11 +388,11 @@
       "status": "live",
       "score": {
         "home": 278,
-        "away": 42
+        "away": 112
       },
       "linescore": {
         "away": [
-          42
+          112
         ],
         "home": [
           278
@@ -446,11 +484,11 @@
       "status": "live",
       "score": {
         "home": 279,
-        "away": 91
+        "away": 190
       },
       "linescore": {
         "away": [
-          91
+          190
         ],
         "home": [
           279
@@ -478,46 +516,14 @@
       "status": "live",
       "score": {
         "home": 261,
-        "away": 78
+        "away": 136
       },
       "linescore": {
         "away": [
-          78
+          136
         ],
         "home": [
           261
-        ]
-      },
-      "attendance": null,
-      "broadcast": null,
-      "has_odds": false
-    },
-    {
-      "id": "a6e20cfb-4fd5-4df8-9d6c-87cefc7a0595",
-      "sport": "cricket",
-      "league": "ODI Cricket",
-      "home": {
-        "name": "Somerset",
-        "short_name": "SOM",
-        "logo_url": "https://g.cricapi.com/iapi/1131-637885552070524344.webp?w=48"
-      },
-      "away": {
-        "name": "Northamptonshire",
-        "short_name": "NOR",
-        "logo_url": "https://g.cricapi.com/iapi/1129-637885551856435418.webp?w=48"
-      },
-      "kickoff_utc": "2026-08-09T10:00:00.000Z",
-      "status": "live",
-      "score": {
-        "home": 185,
-        "away": 63
-      },
-      "linescore": {
-        "away": [
-          63
-        ],
-        "home": [
-          185
         ]
       },
       "attendance": null,
@@ -541,7 +547,7 @@
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 28,
+        "home": 141,
         "away": 383
       },
       "linescore": {
@@ -549,7 +555,7 @@
           383
         ],
         "home": [
-          28
+          141
         ]
       },
       "attendance": null,
@@ -573,7 +579,7 @@
       "kickoff_utc": "2026-08-09T10:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 67,
+        "home": 194,
         "away": 311
       },
       "linescore": {
@@ -581,7 +587,7 @@
           311
         ],
         "home": [
-          67
+          194
         ]
       },
       "attendance": null,
