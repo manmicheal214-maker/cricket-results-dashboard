@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-10T09:54:07.789Z",
+  "updatedAt": "2026-08-10T10:55:56.353Z",
   "sourceCount": 50,
   "count": 50,
   "data": [
@@ -176,6 +176,36 @@
       "status": "scheduled",
       "score": null,
       "linescore": null,
+      "attendance": null,
+      "broadcast": null,
+      "has_odds": false
+    },
+    {
+      "id": "c85b2dc2-6a4c-409a-ae59-f02acb193c3e",
+      "sport": "cricket",
+      "league": "ODI Cricket",
+      "home": {
+        "name": "Ireland",
+        "short_name": "IRE",
+        "logo_url": "https://g.cricapi.com/iapi/33-637926315578500224.png?w=48"
+      },
+      "away": {
+        "name": "Afghanistan",
+        "short_name": "AFG",
+        "logo_url": "https://g.cricapi.com/iapi/1-637877075587179422.webp?w=48"
+      },
+      "kickoff_utc": "2026-08-10T09:45:00.000Z",
+      "status": "live",
+      "score": {
+        "home": 13,
+        "away": 0
+      },
+      "linescore": {
+        "away": [],
+        "home": [
+          13
+        ]
+      },
       "attendance": null,
       "broadcast": null,
       "has_odds": false
@@ -1484,38 +1514,6 @@
         ],
         "home": [
           122
-        ]
-      },
-      "attendance": null,
-      "broadcast": null,
-      "has_odds": false
-    },
-    {
-      "id": "27df98e1-5eb4-4e5a-9613-3f2d9ace623d",
-      "sport": "cricket",
-      "league": "T20I Cricket",
-      "home": {
-        "name": "Trent Rockets",
-        "short_name": "TRE",
-        "logo_url": "https://g.cricapi.com/iapi/292-637885742365093855.webp?w=48"
-      },
-      "away": {
-        "name": "Birmingham Phoenix",
-        "short_name": "BRM",
-        "logo_url": "https://g.cricapi.com/iapi/126-637885741951450455.webp?w=48"
-      },
-      "kickoff_utc": "2026-08-05T17:30:00.000Z",
-      "status": "finished",
-      "score": {
-        "home": 116,
-        "away": 111
-      },
-      "linescore": {
-        "away": [
-          111
-        ],
-        "home": [
-          116
         ]
       },
       "attendance": null,
