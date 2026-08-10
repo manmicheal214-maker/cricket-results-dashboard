@@ -1,7 +1,13 @@
-name: Refresh live cricket data
+name: Refresh cricket data and deploy Pages
 
 on:
   workflow_dispatch:
+    inputs:
+      fetch_scorecards:
+        description: Fetch up to 20 live/completed scorecards
+        required: false
+        type: boolean
+        default: false
   schedule:
     - cron: "*/5 * * * *"
 
@@ -15,42 +21,89 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 concurrency:
-  group: live-pages-deploy
+  group: cricket-pages-deployment
   cancel-in-progress: true
 
 jobs:
-  refresh-live:
+  refresh-and-deploy:
+    name: Refresh cricket data and deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Fetch live match snapshot
+
+      - name: Determine refresh mode
+        id: mode
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          MANUAL_SCORECARDS: ${{ inputs.fetch_scorecards }}
+        run: |
+          set -euo pipefail
+          fetch_scorecards="false"
+
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] && [ "$MANUAL_SCORECARDS" = "true" ]; then
+            fetch_scorecards="true"
+          elif [ "$EVENT_NAME" = "schedule" ] && [ "$(date -u +%M)" = "00" ]; then
+            fetch_scorecards="true"
+          fi
+
+          echo "fetch_scorecards=$fetch_scorecards" >> "$GITHUB_OUTPUT"
+          echo "Scorecard refresh: $fetch_scorecards"
+
+      - name: Fetch cricket data
         env:
           BBS_API_KEY: ${{ secrets.BBS_API_KEY }}
-          FETCH_SCORECARDS: "false"
+          FETCH_SCORECARDS: ${{ steps.mode.outputs.fetch_scorecards }}
         run: node scripts/fetch-data.js
-      - name: Validate generated data
+
+      - name: Validate generated match data
         run: |
+          set -euo pipefail
           test -s public/data/matches.json
-          node - <<'NODE'
+          node <<'NODE'
           const fs = require('fs');
           const payload = JSON.parse(fs.readFileSync('public/data/matches.json', 'utf8'));
-          if (!payload.ok || !Array.isArray(payload.data)) throw new Error('Invalid cricket data');
-          console.log(`Live snapshot: ${payload.data.length} matches at ${payload.updatedAt}`);
+          if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
+            throw new Error('Invalid cricket data');
+          }
+          console.log(`Validated ${payload.data.length} matches at ${payload.updatedAt}`);
           NODE
+
+      - name: Validate scorecards
+        if: steps.mode.outputs.fetch_scorecards == 'true'
+        run: |
+          set -euo pipefail
+          test -d public/data/scorecards
+          test -s public/data/scorecards/index.json
+          node <<'NODE'
+          const fs = require('fs');
+          const payload = JSON.parse(fs.readFileSync('public/data/scorecards/index.json', 'utf8'));
+          if (!payload || typeof payload.matches !== 'object' || payload.matches === null) {
+            throw new Error('Invalid scorecard index');
+          }
+          const entries = Object.entries(payload.matches);
+          const available = entries.filter(([, value]) => value && value.available).length;
+          console.log(`Scorecards: ${entries.length} attempted, ${available} available`);
+          NODE
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: ./public
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
