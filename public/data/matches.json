@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-10T03:05:03.446Z",
+  "updatedAt": "2026-08-10T05:01:29.102Z",
   "sourceCount": 50,
   "count": 50,
   "data": [
@@ -195,14 +195,14 @@
         "logo_url": "https://h.cricapi.com/img/icon512.png"
       },
       "kickoff_utc": "2026-08-09T23:00:00.000Z",
-      "status": "live",
+      "status": "finished",
       "score": {
         "home": 187,
-        "away": 138
+        "away": 183
       },
       "linescore": {
         "away": [
-          138
+          183
         ],
         "home": [
           187
