@@ -40,6 +40,7 @@ async function apiRequest(pathname, key) {
   return payload;
 }
 function unwrap(payload) { return payload?.data ?? payload; }
+function hasInnings(data) { return Array.isArray(data?.innings) && data.innings.length > 0; }
 
 async function fetchScorecards(matches, key) {
   const directory = path.join(__dirname, "..", "public", "data", "scorecards");
@@ -64,11 +65,14 @@ async function fetchScorecards(matches, key) {
       try {
         const payload = await apiRequest(`/matches/${encodeURIComponent(id)}/scorecard`, key);
         const data = unwrap(payload);
-        fs.writeFileSync(path.join(directory, `${encodeURIComponent(String(id))}.json`), JSON.stringify({ ok: true, id, data, updatedAt: new Date().toISOString() }, null, 2) + "\n");
-        index[id] = { available: true, updatedAt: new Date().toISOString() };
-        console.log(`Fetched scorecard ${id}`);
+        const updatedAt = new Date().toISOString();
+        const available = hasInnings(data);
+        fs.writeFileSync(path.join(directory, `${encodeURIComponent(String(id))}.json`), JSON.stringify({ ok: available, id, data, updatedAt }, null, 2) + "\n");
+        index[id] = { available, innings: Array.isArray(data?.innings) ? data.innings.length : 0, updatedAt };
+        console.log(`${available ? "Fetched" : "No innings yet for"} scorecard ${id}`);
       } catch (error) {
         index[id] = { available: false, error: error.message, updatedAt: new Date().toISOString() };
+        fs.writeFileSync(path.join(directory, `${encodeURIComponent(String(id))}.json`), JSON.stringify({ ok: false, id, error: error.message, updatedAt: new Date().toISOString() }, null, 2) + "\n");
         console.log(`Scorecard unavailable for ${id}: ${error.message}`);
       }
     }
