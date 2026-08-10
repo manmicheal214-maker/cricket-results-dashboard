@@ -11,16 +11,18 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm cache clean --force
+          npm install --prefer-online --fetch-retries=5 --fetch-retry-mintimeout=2000 --fetch-retry-maxtimeout=10000
 
       - name: Validate JavaScript
         run: npm run check
