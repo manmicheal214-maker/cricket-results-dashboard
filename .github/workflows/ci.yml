@@ -5,9 +5,17 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Checkout
@@ -16,19 +24,21 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: 24
+          package-manager-cache: false
 
       # This repository's GitHub Pages build does not require npm dependencies.
-      # Avoid npm registry downloads here: the runner has repeatedly received
-      # Express/Dotenv tarballs whose SHA-512 does not match package-lock.json.
+      # Avoid npm registry/cache access in this static validation job.
       - name: Validate JavaScript
         run: |
+          set -euo pipefail
           node --check server.js
           node --check src/cricket-api.js
           node --check public/app.js
 
       - name: Validate static Pages data
         run: |
+          set -euo pipefail
           test -s public/data/matches.json
           node - <<'NODE'
           const fs = require('fs');
