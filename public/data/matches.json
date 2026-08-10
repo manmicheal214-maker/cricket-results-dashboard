@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updatedAt": "2026-08-10T00:50:03.277Z",
+  "updatedAt": "2026-08-10T03:05:03.446Z",
   "sourceCount": 50,
   "count": 50,
   "data": [
@@ -197,13 +197,15 @@
       "kickoff_utc": "2026-08-09T23:00:00.000Z",
       "status": "live",
       "score": {
-        "home": 107,
-        "away": 0
+        "home": 187,
+        "away": 138
       },
       "linescore": {
-        "away": [],
+        "away": [
+          138
+        ],
         "home": [
-          107
+          187
         ]
       },
       "attendance": null,
