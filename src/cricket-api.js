@@ -1,4 +1,3 @@
-```javascript
 const BASE_URL = "https://api.bigballsdata.com/v1/cricket";
 
 function headers() {
@@ -55,9 +54,7 @@ async function getMatch(id) {
 }
 
 async function getScorecard(id) {
-  return request(
-    `/matches/${encodeURIComponent(id)}/scorecard`
-  );
+  return request(`/matches/${encodeURIComponent(id)}/scorecard`);
 }
 
 async function getSeries() {
@@ -72,4 +69,3 @@ module.exports = {
   getScorecard,
   getSeries
 };
-```
