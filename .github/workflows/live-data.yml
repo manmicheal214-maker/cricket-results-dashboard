@@ -1,6 +1,8 @@
 name: Refresh cricket data and deploy Pages
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       fetch_scorecards:
@@ -73,8 +75,8 @@ jobs:
           node <<'NODE'
           const fs = require('fs');
           const payload = JSON.parse(fs.readFileSync('public/data/matches.json', 'utf8'));
-          if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
-            throw new Error('Invalid cricket data');
+          if (!payload || payload.ok !== true || !Array.isArray(payload.data) || payload.data.length === 0) {
+            throw new Error('Invalid or empty cricket data');
           }
           console.log(`Validated ${payload.data.length} matches at ${payload.updatedAt}`);
           NODE
