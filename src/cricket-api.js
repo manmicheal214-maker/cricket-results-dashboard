@@ -2,70 +2,33 @@ const BASE_URL = "https://api.bigballsdata.com/v1/cricket";
 
 function headers() {
   const key = process.env.BBS_API_KEY;
-
-  if (!key) {
-    throw new Error("BBS_API_KEY is not configured");
-  }
-
-  return {
-    Accept: "application/json",
-    Authorization: `Bearer ${key}`
-  };
+  if (!key) throw new Error("BBS_API_KEY is not configured");
+  return { Accept: "application/json", Authorization: `Bearer ${key}` };
 }
 
 async function request(path) {
-  const response = await fetch(`${BASE_URL}${path}`, {
-    headers: headers()
-  });
-
+  const response = await fetch(`${BASE_URL}${path}`, { headers: headers() });
   const text = await response.text();
-
   let body;
-
-  try {
-    body = text ? JSON.parse(text) : {};
-  } catch {
-    body = { error: text };
-  }
-
+  try { body = text ? JSON.parse(text) : {}; } catch { body = { error: text }; }
   if (!response.ok) {
-    const message =
-      body?.error?.message ||
-      body?.error ||
-      body?.message ||
-      `Cricket API returned ${response.status}`;
-
-    throw new Error(message);
+    const message = body?.error?.message || body?.error || body?.message || `Cricket API returned ${response.status}`;
+    throw new Error(String(message));
   }
-
   return body;
 }
 
-function unwrap(payload) {
-  return payload?.data ?? payload;
+function unwrap(payload) { return payload?.data ?? payload; }
+
+async function getMatches({ status, limit = 50 } = {}) {
+  const params = new URLSearchParams();
+  if (status) params.set("status", status);
+  params.set("limit", String(Math.min(Math.max(limit, 1), 200)));
+  return request(`/matches?${params.toString()}`);
 }
 
-async function getMatches() {
-  return request("/matches");
-}
+async function getMatch(id) { return request(`/matches/${encodeURIComponent(id)}`); }
+async function getScorecard(id) { return request(`/matches/${encodeURIComponent(id)}/scorecard`); }
+async function getSeries() { return request("/series"); }
 
-async function getMatch(id) {
-  return request(`/matches/${encodeURIComponent(id)}`);
-}
-
-async function getScorecard(id) {
-  return request(`/matches/${encodeURIComponent(id)}/scorecard`);
-}
-
-async function getSeries() {
-  return request("/series");
-}
-
-module.exports = {
-  request,
-  unwrap,
-  getMatches,
-  getMatch,
-  getScorecard,
-  getSeries
-};
+module.exports = { request, unwrap, getMatches, getMatch, getScorecard, getSeries };
